@@ -5,21 +5,17 @@ export const Container = styled.button`
     justify-content: center;
     align-items: center;
     gap: 6px;
-    background-color: ${({theme}) => theme.COLORS.TOMATO_100};
+    background-color: ${({theme}) => theme.COLORS.DARK_1000};
     color: ${({theme}) => theme.COLORS.LIGHT_100};
-    padding:  18px 0;
+    padding:  8px 12px;
     border-radius: 8px;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: normal;
     font-family: 'Poppins', sans-serif;
 
     &:hover{
-        background-color: ${({theme}) => theme.COLORS.TOMATO_200};
+        filter: brightness(0.8);
     };
 
-    &:disabled{
-        background-color: ${({theme}) => theme.COLORS.TOMATO_400};
-        color: ${({theme}) => theme.COLORS.TOMATO_100};
-    }
 `;
