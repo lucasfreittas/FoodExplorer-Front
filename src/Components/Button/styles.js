@@ -5,7 +5,7 @@ export const Container = styled.button`
     justify-content: center;
     align-items: center;
     gap: 6px;
-    background-color: ${({theme}) => theme.COLORS.TOMATO_100};
+    background-color: ${({theme, second}) => second ? theme.COLORS.DARK_800 : theme.COLORS.TOMATO_100};
     color: ${({theme}) => theme.COLORS.LIGHT_100};
     padding:  18px 0;
     border-radius: 8px;
@@ -15,7 +15,7 @@ export const Container = styled.button`
     font-family: 'Poppins', sans-serif;
 
     &:hover{
-        background-color: ${({theme}) => theme.COLORS.TOMATO_200};
+        background-color: ${({theme, second}) => second ? theme.COLORS.DARK_900 : theme.COLORS.TOMATO_200};
     };
 
     &:disabled{
