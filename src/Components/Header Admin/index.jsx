@@ -1,6 +1,6 @@
 import { Container } from './styles';
 
-import LogoFE from '../../Assets/logo-foodexplorer.svg'
+import LogoAdmin from '../../Assets/logo-admin.svg'
 import { FiSearch } from 'react-icons/fi'
 import { RxExit } from 'react-icons/rx'
 import { Receipt } from '../../Assets/receipt'
@@ -8,11 +8,11 @@ import { Receipt } from '../../Assets/receipt'
 import { InputSearch } from '../Input Search';
 import { Button } from '../Button';
 
-export function Header(){
+export function HeaderAdmin(){
     return(
         <Container>
             <img
-                src={LogoFE}
+                src={LogoAdmin}
                 alt="Logo FoodExplorer"
             />
 
@@ -22,8 +22,7 @@ export function Header(){
             />
 
             <Button
-                title='Pedidos(0)'
-                icon={Receipt}
+                title='Novo Prato'
             />
             
             <RxExit 

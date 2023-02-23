@@ -1,6 +1,6 @@
 import { Container, Input } from './styles';
 
-export function SearchInput({ icon: Icon, ...rest}){
+export function InputSearch({ icon: Icon, ...rest}){
     return(
         <Container>
             {Icon && <Icon size={24}/>}

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     > label {
         font-size: 22px;
@@ -12,8 +13,8 @@ export const Container = styled.div`
     };
 `;
 
-export const InputText = styled.input`
-    background-color: ${({theme}) => theme.COLORS.DARK_900};
+export const SelectBox = styled.select`
+    background-color: ${({theme}) => theme.COLORS.DARK_800};
     border: none;
     height: 65px;
     padding-left: 16px;
