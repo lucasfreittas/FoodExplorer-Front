@@ -8,6 +8,7 @@ export const Container = styled.div`
     "header"
     "content"
     "footer";
+    overflow: hidden;
 `;
 
 export const Content = styled.section`

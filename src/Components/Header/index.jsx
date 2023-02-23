@@ -7,6 +7,7 @@ import { Receipt } from '../../Assets/receipt'
 
 import { InputSearch } from '../Input Search';
 import { Button } from '../Button';
+import { TextButton } from '../TextButton';
 
 export function Header(){
     return(
@@ -18,16 +19,25 @@ export function Header(){
 
             <InputSearch
                 placeholder='Busque por pratos ou ingredientes'
-                icon={FiSearch}    
+                icon={FiSearch}
+                className='search'    
+            />
+
+            <TextButton
+                title='Meus Favoritos'
+            />
+
+             <TextButton
+                title='Histórico de Pedidos'
             />
 
             <Button
                 title='Pedidos(0)'
                 icon={Receipt}
             />
-            
-            <RxExit 
-                size={70}
+
+            <TextButton
+                icon={RxExit}
             />
 
         </Container>

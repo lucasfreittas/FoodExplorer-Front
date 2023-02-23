@@ -7,7 +7,7 @@ export const Container = styled.button`
     gap: 6px;
     background-color: ${({theme, second}) => second ? theme.COLORS.DARK_800 : theme.COLORS.TOMATO_100};
     color: ${({theme}) => theme.COLORS.LIGHT_100};
-    padding:  18px 0;
+    padding:  18px;
     border-radius: 8px;
     border: none;
     font-size: 20px;

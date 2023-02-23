@@ -4,16 +4,13 @@ export const Container = styled.div`
     display: flex;
     gap: 14px;
     align-items: center;
-    width: 100%;
     background-color: ${({theme}) => theme.COLORS.DARK_900};
     color: ${({theme}) => theme.COLORS.LIGHT_400};
     border: none;
     height: 65px;
     padding-left: 16px;
     border-radius: 10px;
-    margin: 0 48px;
-
-
+    width: 100%;
 `;
 
 export const Input = styled.input`
