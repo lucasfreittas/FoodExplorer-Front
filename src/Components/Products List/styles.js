@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6px;
+    gap: 12px;
     padding:  8px 12px;
     border-radius: 8px;
     border: none;
@@ -18,13 +18,24 @@ export const Container = styled.div`
 export const Product = styled.div`
     display: flex;
     flex-direction: column;
+   
 
     > h1 {
-        font-size: 28px;
+        font-size: 32px;
+        line-height: 32px;;
         font-weight: normal;
         font-family: 'Poppins', sans-serif;
-        color: ${({theme}) => theme.COLORS.LIGHT_100};
+        color: ${({theme}) => theme.COLORS.LIGHT_300};
+        margin-bottom: 0px;
     };
+
+    > p {
+        font-size: 16px;
+        font-weight: normal;
+        font-family: 'Roboto', sans-serif;
+        color: ${({theme}) => theme.COLORS.LIGHT_400};
+        margin: 8px 0;
+    }
 
     > button {
         font-size: 16px;

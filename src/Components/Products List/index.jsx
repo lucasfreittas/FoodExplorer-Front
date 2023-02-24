@@ -1,12 +1,12 @@
 import { Container, Product } from './styles';
-import SaladaRavanello from '../../Assets/salada-ravanello.png'
 
-export function ProductsList({title, buttonName,...rest}){
+export function ProductsList({title, buttonName, image, price, ...rest}){
     return(
         <Container {...rest}> 
-            <img src={SaladaRavanello} alt="Foto do Produto" />
+            <img src={image} alt="Foto do Produto" />
             <Product>
                 <h1>{title}</h1>
+                <p>{price}</p>
                 <button>{buttonName}</button>
             </Product>
         </Container>
