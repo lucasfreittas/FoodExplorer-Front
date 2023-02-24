@@ -1,8 +1,9 @@
 import { Container, Table } from './styles';
 
-import { RxDotFilled } from 'react-icons/rx';
 
-export function OrdersTable(){
+import { ToggleStatus } from '../Toogle Status';
+
+export function OrdersTable({user, ...rest}){
     return(
         <Container>
             <Table>
@@ -16,28 +17,28 @@ export function OrdersTable(){
                 </thead>
                 <tbody>
                     <tr>
-                        <td><RxDotFilled/> Pendente</td>
+                        <td><ToggleStatus/></td>
                         <td>00000001</td>
                         <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                         <td>20/05 às 18h00</td>
                     </tr>
 
                     <tr>
-                        <td><RxDotFilled/> Pendente</td>
+                        <td><ToggleStatus/></td>
                         <td>00000001</td>
                         <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                         <td>20/05 às 18h00</td>
                     </tr>
 
                     <tr>
-                        <td><RxDotFilled/> Pendente</td>
+                        <td><ToggleStatus/></td>
                         <td>00000001</td>
                         <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                         <td>20/05 às 18h00</td>
                     </tr>
 
                     <tr>
-                        <td><RxDotFilled/> Pendente</td>
+                        <td><ToggleStatus/></td>
                         <td>00000001</td>
                         <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                         <td>20/05 às 18h00</td>

@@ -13,7 +13,7 @@ export const Container = styled.div`
     
 
     > img {
-        width: 280px;
+        width: 850px;
     }
 
     .novoPrato{
