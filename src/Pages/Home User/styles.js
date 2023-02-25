@@ -11,6 +11,9 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
     grid-area: content;
     width: 100%;
     padding: 220px 170px;
@@ -24,7 +27,6 @@ export const BannerHero = styled.div`
     height: 380px;
     background-image: linear-gradient(rgba(9, 30, 38, 1), rgba(0, 19, 28, 1));
     border-radius: 8px;
-    margin-bottom: 100px;
 
     .imgWrapper {
         width: 800px;

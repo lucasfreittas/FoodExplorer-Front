@@ -5,8 +5,38 @@ import { MealCarousel } from '../../Components/Meal Carousel';
 import { Footer } from '../../Components/Footer';
 
 import HeroImg from '../../Assets/hero-img.png'
+import Salada from '../../Assets/salada-ravanello.png'
 
 export function HomeUser(){
+    const refeições = [
+        {
+            image: Salada,
+            name: 'Salada Ravanello',
+            description: 'Rabanetes, folhas verdes e molho agridoce salpicados com gergilim',
+            price: 'R$ 49,97'
+        },
+
+        {
+            image: Salada,
+            name: 'Salada Ravanello',
+            description: 'Rabanetes, folhas verdes e molho agridoce salpicados com gergilim',
+            price: 'R$ 49,97'
+        },
+
+        {
+            image: Salada,
+            name: 'Salada Ravanello',
+            description: 'Rabanetes, folhas verdes e molho agridoce salpicados com gergilim',
+            price: 'R$ 49,97'
+        },
+
+        {
+            image: Salada,
+            name: 'Salada Ravanello',
+            description: 'Rabanetes, folhas verdes e molho agridoce salpicados com gergilim',
+            price: 'R$ 49,97'
+        },
+    ]
     return(
         <Container>
             <Header/>
@@ -23,6 +53,17 @@ export function HomeUser(){
 
                 <MealCarousel
                     title='Refeições'
+                    data = {refeições}
+                />
+
+                <MealCarousel
+                    title='Sobremesas'
+                    data = {refeições}
+                />
+
+                <MealCarousel
+                    title='Bebidas'
+                    data = {refeições}
                 />
             </Content>
             <Footer/>

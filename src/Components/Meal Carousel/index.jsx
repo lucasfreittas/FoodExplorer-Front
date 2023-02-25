@@ -4,7 +4,7 @@ import { FiPlus, FiMinus, FiHeart, FiChevronLeft, FiChevronRight } from 'react-i
 import { Button } from '../Button';
 import { useRef } from 'react';
 
-export function MealCarousel({title, ...rest}){
+export function MealCarousel({title, data, ...rest}){
     const carouselRef = useRef(null);
 
     const handleMoveLeft = () => {
@@ -25,90 +25,24 @@ export function MealCarousel({title, ...rest}){
             <button onClick={handleMoveRight}><FiChevronRight className='rightArrow'/></button>
             </div>
             <Carousel ref={carouselRef}>
+                {
+                    data.map((data, index) => (
+                        <Card key={index}>
+                            <FiHeart/>
+                            <img src={data.image} alt="" />
+                            <h3>{data.name}</h3>
+                            <p>{data.description}</p>
+                            <h2>{data.price}</h2>
+                            <div>
+                                <FiMinus/>
+                                <span>01</span>
+                                <FiPlus/>
+                                <Button title='incluir'/>
+                            </div>
+                </Card>
+                    ))
+                }
                 
-                <Card>
-                    <FiHeart/>
-                    <img src={Salada} alt="" />
-                    <h3>Salada Ravanello</h3>
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergilim</p>
-                    <h2>R$ 49,97</h2>
-                    <div>
-                        <FiMinus/>
-                        <span>01</span>
-                        <FiPlus/>
-                        <Button title='incluir'/>
-                    </div>
-                </Card>
-
-                <Card>
-                    <FiHeart/>
-                    <img src={Salada} alt="" />
-                    <h3>Salada Ravanello</h3>
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergilim</p>
-                    <h2>R$ 49,97</h2>
-                    <div>
-                        <FiMinus/>
-                        <span>01</span>
-                        <FiPlus/>
-                        <Button title='incluir'/>
-                    </div>
-                </Card>
-
-                <Card>
-                    <FiHeart/>
-                    <img src={Salada} alt="" />
-                    <h3>Salada Ravanello</h3>
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergilim</p>
-                    <h2>R$ 49,97</h2>
-                    <div>
-                        <FiMinus/>
-                        <span>01</span>
-                        <FiPlus/>
-                        <Button title='incluir'/>
-                    </div>
-                </Card>
-
-                <Card>
-                    <FiHeart/>
-                    <img src={Salada} alt="" />
-                    <h3>Salada Ravanello</h3>
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergilim</p>
-                    <h2>R$ 49,97</h2>
-                    <div>
-                        <FiMinus/>
-                        <span>01</span>
-                        <FiPlus/>
-                        <Button title='incluir'/>
-                    </div>
-                </Card>
-
-                <Card>
-                    <FiHeart/>
-                    <img src={Salada} alt="" />
-                    <h3>Salada Ravanello</h3>
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergilim</p>
-                    <h2>R$ 49,97</h2>
-                    <div>
-                        <FiMinus/>
-                        <span>01</span>
-                        <FiPlus/>
-                        <Button title='incluir'/>
-                    </div>
-                </Card>
-
-                <Card>
-                    <FiHeart/>
-                    <img src={Salada} alt="" />
-                    <h3>Salada Ravanello</h3>
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergilim</p>
-                    <h2>R$ 49,97</h2>
-                    <div>
-                        <FiMinus/>
-                        <span>01</span>
-                        <FiPlus/>
-                        <Button title='incluir'/>
-                    </div>
-                </Card>
             </Carousel>
         </Container>
     )
