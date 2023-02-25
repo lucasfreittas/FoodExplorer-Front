@@ -3,10 +3,12 @@ import { MealUser } from '../Pages/Meal User';
 import { FavoritesUser } from '../Pages/Favorites User';
 import { OrderHistoryUser } from '../Pages/Order History User';
 import { ShoppingCartUser } from '../Pages/Shopping Cart User';
+import { HomeUser } from '../Pages/Home User';
 
 export function AppUser(){
     return(
         <Routes>
+            <Route path='/' element={<HomeUser/>} />
             <Route path='/meal/:id' element={<MealUser/>} />
             <Route path='/favorites' element={<FavoritesUser/>} />
             <Route path='/history' element={<OrderHistoryUser/>} />
