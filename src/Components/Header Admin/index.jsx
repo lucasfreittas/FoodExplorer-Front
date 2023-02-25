@@ -9,12 +9,17 @@ import { InputSearch } from '../Input Search';
 import { Button } from '../Button';
 import { TextButton } from '../TextButton';
 
+import { useNavigate } from 'react-router-dom';
+
 export function HeaderAdmin(){
+    const navigate = useNavigate()
+
     return(
         <Container>
             <img
                 src={LogoAdm}
                 alt="Logo FoodExplorer"
+                onClick={() => navigate('/')}
             />
 
             <InputSearch
@@ -23,17 +28,15 @@ export function HeaderAdmin(){
                 className='search'    
             />
 
-            <TextButton
-                title='Meus Favoritos'
-            />
-
              <TextButton
                 title='Histórico de Pedidos'
+                onClick={() => navigate('/history')}
             />
 
             <Button
                 title='Novo Prato'
                 className='novoPrato'
+                onClick={() => navigate('/newmeal')}
             />
 
             <TextButton

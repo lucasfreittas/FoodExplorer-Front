@@ -14,7 +14,8 @@ export const Container = styled.div`
 
     > img {
         width: 850px;
-    }
+        cursor: pointer;
+    };
 
     .novoPrato{
         min-width: 185px;

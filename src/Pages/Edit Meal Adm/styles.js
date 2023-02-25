@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: grid;
     height: 112vh;
+    overflow: hidden;
     grid-template-rows: 146px auto 120px;
     grid-template-areas:
     "header"

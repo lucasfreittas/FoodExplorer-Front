@@ -3,8 +3,11 @@ import Salada from '../../Assets/salada-ravanello.png'
 import { FiPlus, FiMinus, FiEdit, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { Button } from '../Button';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function MealCarouselAdmin({title, data, ...rest}){
+    const navigate = useNavigate()
+
     const carouselRef = useRef(null);
 
     const handleMoveLeft = () => {
@@ -28,7 +31,7 @@ export function MealCarouselAdmin({title, data, ...rest}){
                 {
                     data.map((data, index) => (
                         <Card key={index}>
-                            <FiEdit/>
+                            <FiEdit onClick={() => navigate('/editmeal/1')}/>
                             <img src={data.image} alt="" />
                             <h3>{data.name}</h3>
                             <p>{data.description}</p>

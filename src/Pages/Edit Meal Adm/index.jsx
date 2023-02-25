@@ -1,4 +1,5 @@
 import { Container, Form, Content } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 import { HeaderAdmin } from '../../Components/Header Admin';
 import { TextButton } from '../../Components/TextButton';
@@ -14,6 +15,8 @@ import { FiUpload } from 'react-icons/fi';
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 
 export function EditMeal(){
+    const navigate = useNavigate()
+
     return(
         <Container>
             <HeaderAdmin/>
@@ -22,8 +25,9 @@ export function EditMeal(){
                         className='txtbtn'
                         title='Voltar'
                         icon={MdOutlineKeyboardArrowLeft}
+                        onClick={() => navigate(-1)}
                 />
-                <h1>Adicionar Prato</h1>
+                <h1>Editar Prato</h1>
 
                 <Form>
                     <div className='row1' >

@@ -14,6 +14,7 @@ export const Container = styled.div`
 
     > img {
         width: 280px;
-    }
+        cursor: pointer;
+    };
 
 `;

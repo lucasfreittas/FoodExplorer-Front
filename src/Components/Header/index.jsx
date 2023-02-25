@@ -9,12 +9,17 @@ import { InputSearch } from '../Input Search';
 import { Button } from '../Button';
 import { TextButton } from '../TextButton';
 
+import { useNavigate } from 'react-router-dom';
+
 export function Header(){
+    const navigate = useNavigate()
+
     return(
         <Container>
             <img
                 src={LogoFE}
                 alt="Logo FoodExplorer"
+                onClick={() => navigate('/')}
             />
 
             <InputSearch
@@ -25,15 +30,18 @@ export function Header(){
 
             <TextButton
                 title='Meus Favoritos'
+                onClick={() => navigate('/favorites')}
             />
 
              <TextButton
                 title='Histórico de Pedidos'
+                onClick={() => navigate('/history')}
             />
 
             <Button
                 title='Pedidos(0)'
                 icon={Receipt}
+                onClick={() => navigate('/cart')}
             />
 
             <TextButton
