@@ -1,13 +1,13 @@
 import { Container, BannerHero, Content } from './styles';
 
-import { Header } from '../../Components/Header';
-import { MealCarouselUser } from '../../Components/Meal Carousel User';
+import { HeaderAdmin } from '../../Components/Header Admin';
+import { MealCarouselAdmin } from '../../Components/Meal Carousel Admin';
 import { Footer } from '../../Components/Footer';
 
 import HeroImg from '../../Assets/hero-img.png'
 import Salada from '../../Assets/salada-ravanello.png'
 
-export function HomeUser(){
+export function HomeAdmin(){
     const refeições = [
         {
             image: Salada,
@@ -39,7 +39,7 @@ export function HomeUser(){
     ]
     return(
         <Container>
-            <Header/>
+            <HeaderAdmin/>
             <Content>
                 <BannerHero>
                     <div className='imgWrapper'>
@@ -51,17 +51,17 @@ export function HomeUser(){
                     </div>
                 </BannerHero>
 
-                <MealCarouselUser
+                <MealCarouselAdmin
                     title='Refeições'
                     data = {refeições}
                 />
 
-                <MealCarouselUser
+                <MealCarouselAdmin
                     title='Sobremesas'
                     data = {refeições}
                 />
 
-                <MealCarouselUser
+                <MealCarouselAdmin
                     title='Bebidas'
                     data = {refeições}
                 />

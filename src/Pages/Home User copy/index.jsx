@@ -1,7 +1,7 @@
 import { Container, BannerHero, Content } from './styles';
 
 import { Header } from '../../Components/Header';
-import { MealCarouselUser } from '../../Components/Meal Carousel User';
+import { MealCarousel } from '../../Components/Meal Carousel User';
 import { Footer } from '../../Components/Footer';
 
 import HeroImg from '../../Assets/hero-img.png'
@@ -51,17 +51,17 @@ export function HomeUser(){
                     </div>
                 </BannerHero>
 
-                <MealCarouselUser
+                <MealCarousel
                     title='Refeições'
                     data = {refeições}
                 />
 
-                <MealCarouselUser
+                <MealCarousel
                     title='Sobremesas'
                     data = {refeições}
                 />
 
-                <MealCarouselUser
+                <MealCarousel
                     title='Bebidas'
                     data = {refeições}
                 />

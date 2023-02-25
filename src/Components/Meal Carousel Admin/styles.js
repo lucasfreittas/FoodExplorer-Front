@@ -94,11 +94,12 @@ export const Card = styled.div`
 
 
     > svg {
-        font-size: 40px;
+        font-size: 32px;
         color: ${({theme}) => theme.COLORS.LIGHT_300};
         position: absolute;
         right: 24px;
         top: 24px;
+        cursor: pointer;
     };
 
     > img {
@@ -135,6 +136,7 @@ export const Card = styled.div`
     > div {
         display: flex;
         align-items: center;
+        visibility: hidden;
 
         svg{
             font-size: 40px;

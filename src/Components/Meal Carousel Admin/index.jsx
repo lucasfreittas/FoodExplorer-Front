@@ -1,10 +1,10 @@
 import { Container, Carousel, Card } from './styles';
 import Salada from '../../Assets/salada-ravanello.png'
-import { FiPlus, FiMinus, FiHeart, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { FiPlus, FiMinus, FiEdit, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { Button } from '../Button';
 import { useRef } from 'react';
 
-export function MealCarousel({title, data, ...rest}){
+export function MealCarouselAdmin({title, data, ...rest}){
     const carouselRef = useRef(null);
 
     const handleMoveLeft = () => {
@@ -28,7 +28,7 @@ export function MealCarousel({title, data, ...rest}){
                 {
                     data.map((data, index) => (
                         <Card key={index}>
-                            <FiHeart/>
+                            <FiEdit/>
                             <img src={data.image} alt="" />
                             <h3>{data.name}</h3>
                             <p>{data.description}</p>
@@ -37,7 +37,7 @@ export function MealCarousel({title, data, ...rest}){
                                 <FiMinus/>
                                 <span>01</span>
                                 <FiPlus/>
-                                <Button title='incluir'/>
+                                <Button title='incluir' disabled/>
                             </div>
                 </Card>
                     ))

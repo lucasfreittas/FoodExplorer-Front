@@ -7,7 +7,7 @@ import { AppAdmin } from './appAdmin.routes';
 export function Routes(){
     return(
         <BrowserRouter>
-            {<AppUser/>}
+            {<AppAdmin/>}
         </BrowserRouter>
     )
 }
