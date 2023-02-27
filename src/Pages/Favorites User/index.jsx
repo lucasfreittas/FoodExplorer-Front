@@ -1,17 +1,34 @@
+import { useAuth } from '../../Hooks/auth';
+import { api } from '../../Services/Axios';
+import { useEffect, useState } from 'react';
+
 import { Container, Content, Main  } from './styles';
 import { Header } from '../../Components/Header';
 import { TextButton } from '../../Components/TextButton';
 import { ProductsList } from '../../Components/Products List';
 import { Footer } from '../../Components/Footer';
-import Salada from '../../Assets/salada-ravanello.png'
+
 
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 
 import { useNavigate } from 'react-router-dom'
+    
 
 
-export function FavoritesUser(){
+ export function FavoritesUser(){
+    const [ favorites, setFavorites ] = useState([]);
+    
+    const { user } = useAuth();
     const navigate = useNavigate()
+
+    async function getFavorites(){
+        const userFavorites = await api.get('/favorites', user)
+        setFavorites(userFavorites.data)
+    };
+    
+    useEffect(() => {
+        getFavorites()
+    }, [])
 
     return(
         <Container>
@@ -27,41 +44,18 @@ export function FavoritesUser(){
                 />
 
                 <Main>
-                   <ProductsList
-                        title='Salada Radish'
-                        buttonName='Remover dos Favoritos'
-                        image={Salada}
-                   />
 
-                    <ProductsList
-                        title='Salada Radish'
-                        buttonName='Remover dos Favoritos'
-                        image={Salada}
-                   />
-
-                    <ProductsList
-                        title='Salada Radish'
-                        buttonName='Remover dos Favoritos'
-                        image={Salada}
-                   />
-
-                    <ProductsList
-                        title='Salada Radish'
-                        buttonName='Remover dos Favoritos'
-                        image={Salada}
-                   />
-
-                    <ProductsList
-                        title='Salada Radish'
-                        buttonName='Remover dos Favoritos'
-                        image={Salada}
-                   />
-
-                    <ProductsList
-                        title='Salada Radish'
-                        buttonName='Remover dos Favoritos'
-                        image={Salada}
-                   />
+                    {
+                        favorites && favorites.map((favorite, index) => (
+                            <ProductsList
+                            key={index}
+                            title={favorite.name}
+                            buttonName='Remover dos Favoritos'
+                            image={favorite.photo}
+                       />
+                        ))
+                    }
+                 
                 </Main>
             </Content>
 
