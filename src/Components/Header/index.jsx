@@ -1,3 +1,5 @@
+import { useAuth } from '../../Hooks/auth';
+
 import { Container } from './styles';
 
 import LogoFE from '../../Assets/logo-foodexplorer.svg'
@@ -12,7 +14,12 @@ import { TextButton } from '../TextButton';
 import { useNavigate } from 'react-router-dom';
 
 export function Header(){
+    const { signOut } = useAuth()
     const navigate = useNavigate()
+
+    function handleSignOut(){
+        signOut();
+    };
 
     return(
         <Container>
@@ -46,6 +53,7 @@ export function Header(){
 
             <TextButton
                 icon={RxExit}
+                onClick={handleSignOut}
             />
 
         </Container>
