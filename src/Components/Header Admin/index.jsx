@@ -1,4 +1,5 @@
 import { Container } from './styles';
+import { useAuth } from '../../Hooks/auth';
 
 import LogoAdm from '../../Assets/logo-admin.svg'
 import { FiSearch } from 'react-icons/fi'
@@ -12,7 +13,13 @@ import { TextButton } from '../TextButton';
 import { useNavigate } from 'react-router-dom';
 
 export function HeaderAdmin(){
+    const { signOut } = useAuth();
+
     const navigate = useNavigate()
+
+    function handleSignOut(){
+        signOut()
+    };
 
     return(
         <Container>
@@ -41,6 +48,7 @@ export function HeaderAdmin(){
 
             <TextButton
                 icon={RxExit}
+                onClick={handleSignOut}
             />
 
         </Container>

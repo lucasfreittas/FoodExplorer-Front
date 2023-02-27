@@ -9,9 +9,19 @@ import { AppAdmin } from './appAdmin.routes';
 
 export function Routes(){
     const { user } = useAuth();
+
+    function HandleTypeOfUser(){
+        if(user.admin){
+            return <AppAdmin/>
+        } else {
+            return <AppUser/>
+        }
+     
+    }
+
     return(
         <BrowserRouter>
-            { user ? <AppUser/> : <AuthRoutes/>}
+            { !user ? <AuthRoutes/> : <HandleTypeOfUser/> }
         </BrowserRouter>
     )
 }

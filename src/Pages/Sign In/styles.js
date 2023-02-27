@@ -23,13 +23,6 @@ export const Logo = styled.div`
 
 export const Form = styled.form`
 
-    > h1 {
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-size: 44px;
-        font-weight: 500;
-    }
-
     display: flex;
     width: 700px;
     border-radius: 24px;
@@ -37,4 +30,17 @@ export const Form = styled.form`
     background-color: ${({theme}) => theme.COLORS.DARK_700};
     padding: 100px;
     gap: 40px;
+
+    > h1 {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 44px;
+        font-weight: 500;
+    };
+
+    > :last-child{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `;

@@ -10,8 +10,6 @@ import { Button } from '../../Components/Button';
 import { TextButton } from '../../Components/TextButton';
 
 
-
-
 export function SignIn(){
     const navigate = useNavigate();
     
@@ -25,7 +23,7 @@ export function SignIn(){
         signIn({email, password})
     };
 
-    function handleCreateAccount(event){
+    function handleSignUpPage(event){
         event.preventDefault()
         navigate('/signup')
     };
@@ -59,7 +57,7 @@ export function SignIn(){
 
                 <TextButton
                     title='Crie uma conta'
-                    onClick={(e) => handleCreateAccount(e)}
+                    onClick={(e) => handleSignUpPage(e)}
                 />
 
             </Form>
