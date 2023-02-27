@@ -6,6 +6,7 @@ import theme from './Styles/theme';
 import GlobalStyle from './Styles/global';
 
 import { Routes } from './Routes';
+import { AuthProvider } from './Hooks/auth';
 
 
 
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle/>
-        <Routes/>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
 )
