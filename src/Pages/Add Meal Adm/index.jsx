@@ -18,6 +18,7 @@ import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 
 export function AddMeal(){
     const navigate = useNavigate()
+
     const [ name, setName ] = useState('');
     const [ category, setCategory ] = useState('');
     const [ price, setPrice ] = useState(0.00);
@@ -45,10 +46,20 @@ export function AddMeal(){
             category: category,
             tags: tags,
         };
-        
-       const response = await api.post('/products', newProduct)
-       await api.patch(`/products/photo/${response.data.product_id}`, fileUploadForm)
+    
+        try {
+            const response = await api.post('/products', newProduct)
+            await api.patch(`/products/photo/${response.data.product_id}`, fileUploadForm)
+            alert ('Produto criado com sucesso!')
+        } catch (error){
+            if(error.response){
+                alert(error.response.data.message);
+            } else {
+                alert ('Não foi possível cadastrar')
+            }
+        };
 
+        window.location.reload()
     };
 
    function handlePhoto(event){

@@ -72,8 +72,6 @@ export const Carousel = styled.div`
     overflow-x: scroll;
     scroll-behavior: smooth;
 
-    
-    
 
     ::-webkit-scrollbar {
         height: 0px;
@@ -115,12 +113,15 @@ export const Card = styled.div`
     };
 
     > p {
+        display: flex;
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
         color: ${({theme}) => theme.COLORS.LIGHT_400};
         font-size: 22px;
         line-height: 32px;
         text-align: center;
+        min-height: 100px;
+        align-items: center;
     };
 
     > h2 {

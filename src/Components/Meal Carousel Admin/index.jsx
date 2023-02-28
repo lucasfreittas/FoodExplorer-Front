@@ -4,6 +4,7 @@ import { FiPlus, FiMinus, FiEdit, FiChevronLeft, FiChevronRight } from 'react-ic
 import { Button } from '../Button';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { api } from '../../Services/Axios';
 
 export function MealCarouselAdmin({title, data, ...rest}){
     const navigate = useNavigate()
@@ -17,6 +18,8 @@ export function MealCarouselAdmin({title, data, ...rest}){
     const handleMoveRight = () => {
         carouselRef.current.scrollLeft += 500;
     };
+
+    const baseUrlImg = `${api.defaults.baseURL}/files/`
 
     return(
         <Container>
@@ -32,10 +35,10 @@ export function MealCarouselAdmin({title, data, ...rest}){
                     data.map((data, index) => (
                         <Card key={index}>
                             <FiEdit onClick={() => navigate('/editmeal/1')}/>
-                            <img src={data.image} alt="" />
+                            <img src={`${baseUrlImg}${data.photo}`} alt="" />
                             <h3>{data.name}</h3>
                             <p>{data.description}</p>
-                            <h2>{data.price}</h2>
+                            <h2>R$ {data.price}</h2>
                             <div>
                                 <FiMinus/>
                                 <span>01</span>
