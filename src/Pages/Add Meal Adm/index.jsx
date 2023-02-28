@@ -1,5 +1,7 @@
 import { Container, Form, Content } from './styles';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { api } from '../../Services/Axios';
 
 import { HeaderAdmin } from '../../Components/Header Admin';
 import { TextButton } from '../../Components/TextButton';
@@ -16,6 +18,55 @@ import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 
 export function AddMeal(){
     const navigate = useNavigate()
+    const [ name, setName ] = useState('');
+    const [ category, setCategory ] = useState('');
+    const [ price, setPrice ] = useState(0.00);
+    const [ description, setDescription ] = useState('');
+
+    const [ tags, setTags ] = useState([]);
+    const [ newTag, setNewTag ] = useState('');
+
+ 
+    const [ photoFile, setPhotoFile ] = useState(null);
+    const [ photoImg, setPhotoImg ] = useState(null)
+    const [ imgName, setImgName] = useState('Upload da imagem')
+
+
+    async function handleCreateMeal(event){
+        event.preventDefault()
+
+        const fileUploadForm = new FormData();
+        fileUploadForm.append('photo', photoFile);
+
+        const newProduct = {
+            name: name,
+            description: description,
+            price: price,
+            category: category,
+            tags: tags,
+        };
+        
+       const response = await api.post('/products', newProduct)
+       await api.patch(`/products/photo/${response.data.product_id}`, fileUploadForm)
+
+    };
+
+   function handlePhoto(event){
+        const file = event.target.files[0];
+        setPhotoFile(file);
+
+        const photoPreview = URL.createObjectURL(file);
+        setPhotoImg(photoPreview);
+
+        setImgName(file.name)
+     
+   };
+
+    function handleAddTag(event){
+        event.preventDefault()
+        setTags(prevState => [...prevState, newTag])
+        setNewTag('')
+    };
 
     return(
         <Container>
@@ -33,31 +84,38 @@ export function AddMeal(){
                     <div className='row1' >
                         <InputFile
                             label='Imagem do prato'
-                            title='Selecione Imagem'
+                            title={imgName}
                             icon={FiUpload}
-                            
-                            
+                            onChange={handlePhoto}
                         />
 
                         <Input
                             label='Nome'
                             type='text'
+                            onChange={e => setName(e.target.value)}
                         />
 
                         <InputSelect
                             label='Categoria'
+                            placeholder='Selecione uma categoria'
                             options={[
-                                {label: 'Opção 1', value: 'Opção 1'},
-                                {label: 'Opção 2', value: 'Opção 2'},
-                                {label: 'Opção 3', value: 'Opção 3'},
+                                {label: 'Refeições', value: 'Refeições'},
+                                {label: 'Sobremesas', value: 'Sobremesas'},
+                                {label: 'Bebidas', value: 'Bebidas'},
                             ]}
+                            onChange={e => setCategory(e.target.value)}
+                            
                         />
                     </div>
                     
                     <div className='row2'>
                         <InputTags
                             label='Ingredientes'
-                            tags={['Pão naan', 'Cebola']}
+                            tags={tags}
+                            onChange={e => setNewTag(e.target.value)}
+                            onClick={handleAddTag}
+                            setTags={setTags}
+                            value={newTag}
                         />
 
                         <Input
@@ -68,6 +126,7 @@ export function AddMeal(){
                             step='0.01'
                             placeholder='R$ 0,00'
                             money
+                            onChange={e => setPrice(e.target.value)}
                         />
                     </div>
 
@@ -75,12 +134,14 @@ export function AddMeal(){
                         <TextArea
                             label='Descrição'
                             placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
+                            onChange={e => setDescription(e.target.value)}
                         />
                     </div>
 
                     <div className='row3'>    
                         <Button
                             title='Salvar Alterações'
+                            onClick={handleCreateMeal}
                         />
                     </div>    
                     

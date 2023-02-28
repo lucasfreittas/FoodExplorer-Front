@@ -2,7 +2,14 @@ import { Container, InnerTag, Wraper } from './styles';
 import { FiX, FiPlus } from 'react-icons/fi'
 
 
-export function InputTags({ tags, onClick, label, ...rest}){
+export function InputTags({ tags, onClick, label, setTags, ...rest}){
+
+    function removeTag(event, tagToDelete){
+        event.preventDefault()
+        setTags(prevState => prevState.filter(allTags => allTags !== tagToDelete))
+
+    };
+
     return(
         <Container>
             <label>{label}</label>
@@ -11,7 +18,7 @@ export function InputTags({ tags, onClick, label, ...rest}){
                     tags && tags.map((tag, index) => (
                         <InnerTag key={index}>
                             {tag}
-                            <button>
+                            <button onClick={(e) => removeTag(e, tag)}>
                                 <FiX/>
                             </button>
                             
@@ -19,11 +26,9 @@ export function InputTags({ tags, onClick, label, ...rest}){
                     ))
                 }
 
-                <InnerTag isNew>
-                    Adicionar
-                    <button>
-                        <FiPlus/>
-                    </button>
+                <InnerTag  isNew>
+                    <input {...rest} type="text" placeholder='Adicionar' />
+                    <button onClick={onClick}><FiPlus/></button>
                     
                 </InnerTag>
             </Wraper>
