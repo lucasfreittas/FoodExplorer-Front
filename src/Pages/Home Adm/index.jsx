@@ -20,7 +20,8 @@ export function HomeAdmin(){
     useEffect(() => {
         async function fetchProducts(){
             const response = await api.get('/products')
-            setProducts(response.data)           
+            setProducts(response.data);
+            handleCategory()           
         };
 
         function handleCategory() {
@@ -58,7 +59,7 @@ export function HomeAdmin(){
 
 
         fetchProducts()
-        handleCategory()
+        
 
         
     }, [products])

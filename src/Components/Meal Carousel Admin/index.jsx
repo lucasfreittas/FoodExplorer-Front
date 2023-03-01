@@ -34,7 +34,7 @@ export function MealCarouselAdmin({title, data, ...rest}){
                 {
                     data.map((data, index) => (
                         <Card key={index}>
-                            <FiEdit onClick={() => navigate('/editmeal/1')}/>
+                            <FiEdit onClick={() => navigate(`/editmeal/${data.id}`)}/>
                             <img src={`${baseUrlImg}${data.photo}`} alt="" />
                             <h3>{data.name}</h3>
                             <p>{data.description}</p>

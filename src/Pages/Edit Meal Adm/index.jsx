@@ -1,5 +1,7 @@
 import { Container, Form, Content } from './styles';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { api } from '../../Services/Axios';
 
 import { HeaderAdmin } from '../../Components/Header Admin';
 import { TextButton } from '../../Components/TextButton';
@@ -15,7 +17,110 @@ import { FiUpload } from 'react-icons/fi';
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 
 export function EditMeal(){
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const params = useParams();
+
+    const [ productData, setProductData ] = useState({});
+    const [ tagData, setTagData ] = useState([]);
+
+    const [ name, setName ] = useState('');
+    const [ category, setCategory ] = useState('');
+    const [ price, setPrice ] = useState(0.00);
+    const [ description, setDescription ] = useState('');
+
+    const [ tags, setTags ] = useState([]);
+    const [ newTag, setNewTag ] = useState('');
+ 
+    const [ photoFile, setPhotoFile ] = useState(null);
+    const [ photoImg, setPhotoImg ] = useState(null);
+    const [ imgName, setImgName] = useState('Upload da imagem');
+
+
+    async function handleUpdateMeal(event){
+        event.preventDefault();
+
+        if(photoFile !== null){
+            const fileUploadForm = new FormData();
+            fileUploadForm.append('photo', photoFile);
+
+            try{
+
+                await api.patch(`/products/photo/${params.id}`, fileUploadForm)
+            }
+            catch (error){
+                if(error.response){
+                    alert(error.response.data.message);
+                } else {
+                    alert ('Não foi possível atualizar')
+                }
+            };
+        };
+    
+        const newProduct = {
+            name: name,
+            description: description,
+            price: price,
+            category: category,
+            tags: tags,
+        };
+    
+        try {
+            await api.put(`/products/${params.id}`, newProduct)
+            alert ('Produto atualizado com sucesso!')
+        } catch (error){
+            if(error.response){
+                alert(error.response.data.message);
+            } else {
+                alert ('Não foi possível atualizar')
+            }
+        };
+
+        window.location.reload()
+    };
+
+   function handlePhoto(event){
+        const file = event.target.files[0];
+        setPhotoFile(file);
+
+        const photoPreview = URL.createObjectURL(file);
+        setPhotoImg(photoPreview);
+
+        setImgName(file.name)
+     
+   };
+
+    function handleAddTag(event){
+        event.preventDefault()
+        setTags(prevState => [...prevState, newTag])
+        setNewTag('')
+    };
+
+
+      useEffect(() => {
+        async function fetchProductData() {
+            try {
+                const productResponse = await api.get(`/products/${params.id}`);
+                setProductData(productResponse.data.product);
+      
+                const tagResponse = await api.get(`/products/${params.id}`);
+                const loadTags = tagResponse.data.tags;
+    
+                setName(productResponse.data.product.name);
+                setDescription(productResponse.data.product.description);
+                setPrice(productResponse.data.product.price);
+                setImgName(productResponse.data.product.photo.split(' - ')[1]);
+
+                const readTags = loadTags.map(tag => tag.name);
+                setTags(readTags)
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    
+        fetchProductData()
+    }, []);
+
 
     return(
         <Container>
@@ -33,31 +138,39 @@ export function EditMeal(){
                     <div className='row1' >
                         <InputFile
                             label='Imagem do prato'
-                            title='Selecione Imagem'
+                            title={imgName}
                             icon={FiUpload}
-                            
-                            
+                            onChange={handlePhoto}
                         />
 
                         <Input
                             label='Nome'
                             type='text'
+                            onChange={e => setName(e.target.value)}
+                            placeholder={productData.name}
                         />
 
                         <InputSelect
                             label='Categoria'
+                            placeholder='Selecione uma categoria'
                             options={[
-                                {label: 'Opção 1', value: 'Opção 1'},
-                                {label: 'Opção 2', value: 'Opção 2'},
-                                {label: 'Opção 3', value: 'Opção 3'},
+                                {label: 'Refeições', value: 'Refeições'},
+                                {label: 'Sobremesas', value: 'Sobremesas'},
+                                {label: 'Bebidas', value: 'Bebidas'},
                             ]}
+                            onChange={e => setCategory(e.target.value)}
+                            
                         />
                     </div>
                     
                     <div className='row2'>
                         <InputTags
                             label='Ingredientes'
-                            tags={['Pão naan', 'Cebola']}
+                            tags={tags}
+                            onChange={e => setNewTag(e.target.value)}
+                            onClick={handleAddTag}
+                            setTags={setTags}
+                            value={newTag}
                         />
 
                         <Input
@@ -66,28 +179,31 @@ export function EditMeal(){
                             min='0.00'
                             max='10000000.00'
                             step='0.01'
-                            placeholder='R$ 0,00'
+                            placeholder={`R$ ${productData.price}`}
                             money
+                            onChange={e => setPrice(e.target.value)}
                         />
                     </div>
 
                     <div>
                         <TextArea
                             label='Descrição'
-                            placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
+                            placeholder={productData.description}
+                            onChange={e => setDescription(e.target.value)}
                         />
                     </div>
 
                     <div className='row3'>
-                        <Button
+                         <Button
                             title='Excluir Prato'
-                            second={true}
+                            onClick={() => {}}
+                            second
                         />
 
                         <Button
                             title='Salvar Alterações'
+                            onClick={handleUpdateMeal}
                         />
-                        
                     </div>    
                     
                 </Form>
