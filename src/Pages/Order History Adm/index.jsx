@@ -1,4 +1,6 @@
 import { Container, Content, Main  } from './styles';
+import { api } from '../../Services/Axios';
+import { useState, useEffect } from 'react';
 
 import { HeaderAdmin } from '../../Components/Header Admin';
 import { TextButton } from '../../Components/TextButton';
@@ -10,6 +12,18 @@ import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 
 
 export function OrderHistoryAdmin(){
+
+    const [ allOrders, setAllOrders ] = useState([]); 
+
+    async function fetchOrders(){
+        const responseOrders = await api.get('/orders');
+        setAllOrders(responseOrders.data);
+    };
+
+    useEffect(() => {
+        fetchOrders()
+    }, [])
+
     return(
         <Container>
             <HeaderAdmin/>
@@ -22,7 +36,9 @@ export function OrderHistoryAdmin(){
                     icon={MdOutlineKeyboardArrowLeft}
                 />
 
-                <OrdersTable/>
+                <OrdersTable
+                    data={allOrders}
+                />
 
                 <Main>
                    

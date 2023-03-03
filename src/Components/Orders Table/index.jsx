@@ -1,9 +1,10 @@
 import { Container, Table } from './styles';
-
+import { useEffect, useState } from 'react';
 
 import { ToggleStatus } from '../Toogle Status';
 
-export function OrdersTable({user, ...rest}){
+export function OrdersTable({data, ...rest}){
+
     return(
         <Container>
             <Table>
@@ -16,33 +17,21 @@ export function OrdersTable({user, ...rest}){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><ToggleStatus/></td>
-                        <td>00000001</td>
-                        <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
-                        <td>20/05 às 18h00</td>
-                    </tr>
 
-                    <tr>
-                        <td><ToggleStatus/></td>
-                        <td>00000001</td>
-                        <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
-                        <td>20/05 às 18h00</td>
-                    </tr>
-
-                    <tr>
-                        <td><ToggleStatus/></td>
-                        <td>00000001</td>
-                        <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
-                        <td>20/05 às 18h00</td>
-                    </tr>
-
-                    <tr>
-                        <td><ToggleStatus/></td>
-                        <td>00000001</td>
-                        <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
-                        <td>20/05 às 18h00</td>
-                    </tr>
+                    {
+                        data && data.map((order, index) => (
+                            <tr key={index}>
+                                <td><ToggleStatus
+                                        status={order.status}
+                                        ordersId={order.id}
+                                    />
+                                </td>
+                                <td>{order.id.toString().padStart(8, '0')}</td>
+                                <td>{order.description}</td>
+                                <td>{order.created_at}</td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </Table>
         </Container>
