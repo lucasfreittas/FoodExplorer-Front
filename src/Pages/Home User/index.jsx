@@ -1,4 +1,6 @@
 import { Container, BannerHero, Content } from './styles';
+import { api } from '../../Services/Axios'; 
+import { useState, useEffect } from 'react';
 
 import { Header } from '../../Components/Header';
 import { MealCarouselUser } from '../../Components/Meal Carousel User';
@@ -8,35 +10,53 @@ import HeroImg from '../../Assets/hero-img.png'
 import Salada from '../../Assets/salada-ravanello.png'
 
 export function HomeUser(){
-    const refeições = [
-        {
-            image: Salada,
-            name: 'Salada Ravanello',
-            description: 'Rabanetes, folhas verdes e molho agridoce salpicados com gergilim',
-            price: 'R$ 49,97'
-        },
+   const [ products, setProducts ] = useState([]);
+   const [ refeições, setRefeições ] = useState([]);
+   const [ sobremesas, setSobremesas ] = useState([]);
+   const [ bebidas, setBebidas ] = useState([]);
 
-        {
-            image: Salada,
-            name: 'Salada Ravanello',
-            description: 'Rabanetes, folhas verdes e molho agridoce salpicados com gergilim',
-            price: 'R$ 49,97'
-        },
 
-        {
-            image: Salada,
-            name: 'Salada Ravanello',
-            description: 'Rabanetes, folhas verdes e molho agridoce salpicados com gergilim',
-            price: 'R$ 49,97'
-        },
+   function handleCategory(){
+    products.map(product => {
+        if(product.category === 'Refeições'){
+            setRefeições(prevState => {
+                if(prevState.some(p => p.id === product.id)){
+                    return prevState;
+                } else {
+                    return [...prevState, product];
+                }
+            })
+        } else if (product.category === 'Bebidas'){
+            setBebidas(prevState => {
+                if(prevState.some(p => p.id === product.id)){
+                    return prevState;
+                } else {
+                    return [...prevState, product];
+                }
+            })
+        } else if (product.category === 'Sobremesas'){
+            setSobremesas(prevState => {
+                if(prevState.some(p => p.id === product.id)){
+                    return prevState;
+                } else {
+                    return [...prevState, product];
+                }
+            })
+        }
+    })
+   }
 
-        {
-            image: Salada,
-            name: 'Salada Ravanello',
-            description: 'Rabanetes, folhas verdes e molho agridoce salpicados com gergilim',
-            price: 'R$ 49,97'
-        },
-    ]
+    useEffect(() => {
+        async function fetchProducts(){
+            const response = await api.get('/products');
+            setProducts(response.data);
+
+            handleCategory();
+        };
+
+        fetchProducts();
+
+    }, [products])
     return(
         <Container>
             <Header/>
@@ -58,12 +78,12 @@ export function HomeUser(){
 
                 <MealCarouselUser
                     title='Sobremesas'
-                    data = {refeições}
+                    data = {sobremesas}
                 />
 
                 <MealCarouselUser
                     title='Bebidas'
-                    data = {refeições}
+                    data = {bebidas}
                 />
             </Content>
             <Footer/>

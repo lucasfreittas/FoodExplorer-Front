@@ -93,17 +93,28 @@ export const Card = styled.div`
     position: relative;
 
 
-    > svg {
+    .filled {
         font-size: 32px;
-        color: ${({theme}) => theme.COLORS.LIGHT_300};
+        color: ${({theme}) => theme.COLORS.TOMATO_300};
+        fill: ${({theme}) => theme.COLORS.TOMATO_300};
         position: absolute;
         right: 24px;
         top: 24px;
         cursor: pointer;
     };
 
+    .unfilled {
+        font-size: 32px;
+        color: ${({theme}) => theme.COLORS.LIGHT_300};
+        position: absolute;
+        right: 24px;
+        top: 24px;
+        cursor: pointer;
+    }
+
     > img {
         width: 250px;
+        cursor: pointer;
     };
 
     > h3 {
@@ -117,6 +128,7 @@ export const Card = styled.div`
     > p {
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
+        min-height: 100px;
         color: ${({theme}) => theme.COLORS.LIGHT_400};
         font-size: 22px;
         line-height: 32px;
@@ -136,6 +148,7 @@ export const Card = styled.div`
     > div {
         display: flex;
         align-items: center;
+        z-index: 10;
 
         svg{
             font-size: 40px;
