@@ -3,14 +3,16 @@ import { FiPlus, FiMinus, FiHeart, FiChevronLeft, FiChevronRight } from 'react-i
 import { Button } from '../Button';
 import { useRef, useEffect, useState } from 'react';
 import { api } from '../../Services/Axios';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../Hooks/auth';
 
 export function MealCarouselUser({title, data, isFilled, ...rest}){
     const carouselRef = useRef(null);
     const navigate = useNavigate();
+    const {cart, setCart} = useAuth()
 
     const [ userFavorite, setUserFavorite ]  = useState([]);
-    const [quantities, setQuantities] = useState(Array(data.length).fill(0));
+    const [quantities, setQuantities] = useState((Array(5).fill(0)));
 
     const handleMoveLeft = () => {
         carouselRef.current.scrollLeft -= 500;
@@ -27,6 +29,7 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
     async function fetchFavorites(){
         const response = await api.get('/favorites');
         setUserFavorite(response.data)
+       
     };
 
     function handleIncrement(index) {
@@ -41,8 +44,30 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
           newQuantities[index] -= 1;
         }
         setQuantities(newQuantities);
-      }
-    
+      };
+      
+
+      function handleAddToCart(product, quantities){
+        const order={
+            id: product.id,
+            quantities: quantities
+        };
+
+        setCart(prevState => {
+            if(prevState.some(p => p.id === product.id)){
+                return prevState.map(p => {
+                    if(p.id === product.id){
+                        return order;
+                    } else {
+                        return p;
+                    }
+                })
+            } else {
+                return [...prevState, order];
+            }
+        });
+        
+      };
 
     async function handleToggleFavoritesUser(id){
         const response = await api.get('/favorites');
@@ -67,6 +92,7 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
     useEffect(() => {
         
         fetchFavorites();
+       
     }, [])
     return(
         <Container>
@@ -97,7 +123,11 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
                                 <FiMinus onClick={() => handleDecrement(index)} />
                                 <span>{quantities[index]}</span>
                                 <FiPlus onClick={() => handleIncrement(index)} />
-                                <Button title='incluir'/>
+                                <Button
+                                    title='incluir'
+                                    onClick={() => handleAddToCart(data, quantities[index])}
+                                    
+                                    />
                             </div>
                 </Card>
                     ))

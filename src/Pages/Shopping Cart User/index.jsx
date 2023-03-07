@@ -10,9 +10,19 @@ import { PaymentCard } from '../../Components/Payment';
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import SaladaRavanello from '../../Assets/salada-ravanello.png'
 
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
+import { useAuth } from '../../Hooks/auth';
 
 
-export function ShoppingCartUser(){
+export function ShoppingCartUser({data}){
+    const location = useLocation();
+    const {cart} = useAuth()
+
+    useEffect(() => {
+        console.log(cart)
+    }, [cart])
     return(
         <Container>
             <Header/>
