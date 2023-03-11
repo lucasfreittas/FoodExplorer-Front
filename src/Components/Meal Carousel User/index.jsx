@@ -3,13 +3,14 @@ import { FiPlus, FiMinus, FiHeart, FiChevronLeft, FiChevronRight } from 'react-i
 import { Button } from '../Button';
 import { useRef, useEffect, useState } from 'react';
 import { api } from '../../Services/Axios';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../../Hooks/order';
 
 
 export function MealCarouselUser({title, data, isFilled, ...rest}){
     const carouselRef = useRef(null);
     const navigate = useNavigate();
+    const params = useParams();
     const { handleCart } = useCart();
 
 
@@ -58,7 +59,8 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
 
         };
 
-    async function handleToggleFavoritesUser(id){
+    async function handleToggleFavoritesUser(e, id){
+        e.stopPropagation();
         const response = await api.get('/favorites');
         const favorites = response.data;
 
@@ -71,8 +73,6 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
         }
 
         const isFilled= userFavorite.some(favorite => favorite.id === id);
-        console.log(isFilled)
-
         fetchFavorites();
     };
 
@@ -95,9 +95,9 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
             <Carousel ref={carouselRef}>
                 {
                     data.map((data, index) => (
-                        <Card key={index}>
+                        <Card key={index} onClick={() => navigate(`/meal/${data.id}`)}>
                             <FiHeart
-                                onClick={() => handleToggleFavoritesUser(data.id)}
+                                onClick={(e) => handleToggleFavoritesUser(e, data.id)}
                                 className={userFavorite.some(favorite => favorite.id === data.id) ? 'filled' : 'unfilled'}
                             />
                             <img
