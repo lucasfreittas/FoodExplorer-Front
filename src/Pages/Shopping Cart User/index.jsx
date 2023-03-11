@@ -6,23 +6,36 @@ import { Footer } from '../../Components/Footer';
 import { ProductsList } from '../../Components/Products List';
 import { PaymentCard } from '../../Components/Payment';
 
-
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import SaladaRavanello from '../../Assets/salada-ravanello.png'
 
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useCart } from '../../Hooks/order';
+import { api } from '../../Services/Axios';
 
-import { useAuth } from '../../Hooks/auth';
 
 
-export function ShoppingCartUser({data}){
+export function ShoppingCartUser(){
     const location = useLocation();
-    const {cart} = useAuth()
+    const { cart } = useCart();
+    const [ total, setTotal ] = useState();
+    const baseUrlImg = `${api.defaults.baseURL}/files/`
+    
+    function handleTotal(){
+        let total = 0
+        cart.map(product => {
+            total = product.quantities * product.price + total
+        });
+
+        setTotal(total)
+    };
 
     useEffect(() => {
-        console.log(cart)
-    }, [cart])
+        handleTotal()
+    }, [])
+      
+
     return(
         <Container>
             <Header/>
@@ -35,32 +48,20 @@ export function ShoppingCartUser({data}){
             <Main> 
                 <Order>
                     <h1>Meu Pedido</h1>
-                    <ProductsList
-                        title='1 x Salada Radish'
-                        price='R$ 25.97'
-                        buttonName='Excluir'
-                        image={SaladaRavanello}
-                    />
-                    <ProductsList
-                        title='1 x Salada Radish'
-                        price='R$ 25.97'
-                        buttonName='Excluir'
-                        image={SaladaRavanello}
-                    />
-                    <ProductsList
-                        title='1 x Salada Radish'
-                        price='R$ 25.97'
-                        buttonName='Excluir'
-                        image={SaladaRavanello}
-                    />
-                    <ProductsList
-                        title='1 x Salada Radish'
-                        price='R$ 25.97'
-                        buttonName='Excluir'
-                        image={SaladaRavanello}
-                    />
 
-                    <h2>Total: R$ 103,88</h2>
+                    {
+                        cart && cart.map((product, index) => (
+                            <ProductsList
+                                key={index}
+                                title={`${product.quantities}x ${product.name}`}
+                                price={`R$ ${product.price * product.quantities}`}
+                                buttonName='Excluir'
+                                image={`${baseUrlImg}${product.photo}`}
+                            />
+                        ))
+                    }
+
+                    <h2>R$ {total}</h2>
                 </Order>
 
                 <Payment>

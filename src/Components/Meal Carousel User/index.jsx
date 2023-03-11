@@ -4,12 +4,14 @@ import { Button } from '../Button';
 import { useRef, useEffect, useState } from 'react';
 import { api } from '../../Services/Axios';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../Hooks/auth';
+import { useCart } from '../../Hooks/order';
+
 
 export function MealCarouselUser({title, data, isFilled, ...rest}){
     const carouselRef = useRef(null);
     const navigate = useNavigate();
-    const {cart, setCart} = useAuth()
+    const { handleCart } = useCart();
+
 
     const [ userFavorite, setUserFavorite ]  = useState([]);
     const [quantities, setQuantities] = useState((Array(5).fill(0)));
@@ -48,26 +50,8 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
       
 
       function handleAddToCart(product, quantities){
-        const order={
-            id: product.id,
-            quantities: quantities
+            handleCart(product, quantities)
         };
-
-        setCart(prevState => {
-            if(prevState.some(p => p.id === product.id)){
-                return prevState.map(p => {
-                    if(p.id === product.id){
-                        return order;
-                    } else {
-                        return p;
-                    }
-                })
-            } else {
-                return [...prevState, order];
-            }
-        });
-        
-      };
 
     async function handleToggleFavoritesUser(id){
         const response = await api.get('/favorites');

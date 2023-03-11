@@ -6,7 +6,6 @@ export const AuthContext = createContext({});
 
 export function AuthProvider({ children }){
     const [data, setData] = useState({});
-    const [ cart, setCart ] = useState([])
 
     async function signIn({ email, password }){
 
@@ -50,8 +49,6 @@ export function AuthProvider({ children }){
             signIn,
             signOut,
             user: data.user,
-            setCart,
-            cart
         }}>
 
             {children}
