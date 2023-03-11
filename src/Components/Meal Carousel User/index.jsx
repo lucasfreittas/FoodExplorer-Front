@@ -50,7 +50,12 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
       
 
       function handleAddToCart(product, quantities){
+            if(quantities <= 0){
+                return
+            };
             handleCart(product, quantities)
+            setQuantities((Array(5).fill(0)));
+
         };
 
     async function handleToggleFavoritesUser(id){

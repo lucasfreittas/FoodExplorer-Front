@@ -12,10 +12,13 @@ import { Button } from '../Button';
 import { TextButton } from '../TextButton';
 
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../Hooks/order';
 
 export function Header(){
     const { signOut } = useAuth()
     const navigate = useNavigate()
+
+    const { cart } = useCart();
 
     function handleSignOut(){
         signOut();
@@ -46,7 +49,7 @@ export function Header(){
             />
 
             <Button
-                title='Pedidos(0)'
+                title={`Pedidos (${cart.length})`}
                 icon={Receipt}
                 onClick={() => navigate('/cart')}
             />

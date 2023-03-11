@@ -13,6 +13,7 @@ export const Container = styled.button`
     font-size: 20px;
     font-weight: normal;
     font-family: 'Poppins', sans-serif;
+    min-width: max-content;
 
     &:hover{
         background-color: ${({theme, second}) => second ? theme.COLORS.DARK_900 : theme.COLORS.TOMATO_200};
