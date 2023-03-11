@@ -89,6 +89,7 @@ export const Card = styled.div`
     border-radius: 16px;
     padding: 28px;
     position: relative;
+    cursor: pointer;
 
 
     > svg {
@@ -98,6 +99,7 @@ export const Card = styled.div`
         right: 24px;
         top: 24px;
         cursor: pointer;
+        
     };
 
     > img {

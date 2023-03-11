@@ -8,6 +8,8 @@ import { api } from '../../Services/Axios';
 
 export function MealCarouselAdmin({title, data, ...rest}){
     const navigate = useNavigate()
+    const baseUrlImg = `${api.defaults.baseURL}/files/`;
+
 
     const carouselRef = useRef(null);
 
@@ -19,7 +21,10 @@ export function MealCarouselAdmin({title, data, ...rest}){
         carouselRef.current.scrollLeft += 500;
     };
 
-    const baseUrlImg = `${api.defaults.baseURL}/files/`
+    function handleEditMeal(e, id){
+        e.stopPropagation();
+        navigate(`/editmeal/${id}`)
+    };
 
     return(
         <Container>
@@ -33,8 +38,8 @@ export function MealCarouselAdmin({title, data, ...rest}){
             <Carousel ref={carouselRef}>
                 {
                     data.map((data, index) => (
-                        <Card key={index}>
-                            <FiEdit onClick={() => navigate(`/editmeal/${data.id}`)}/>
+                        <Card key={index} onClick={() => navigate(`/meal/${data.id}`)}>
+                            <FiEdit onClick={(e) => handleEditMeal(e, data.id)}/>
                             <img src={`${baseUrlImg}${data.photo}`} alt="" />
                             <h3>{data.name}</h3>
                             <p>{data.description}</p>

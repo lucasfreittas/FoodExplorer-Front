@@ -9,7 +9,32 @@ import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import { FiPlus, FiMinus } from 'react-icons/fi'
 import SaladaRavanello from '../../Assets/salada-ravanello.png'
 
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { api } from '../../Services/Axios';
+
 export function MealAdmin(){
+    const navigate = useNavigate();
+    const params = useParams();
+    const baseUrlImg = `${api.defaults.baseURL}/files/`
+
+    const [ data, setData ] = useState({});
+    const [ tags, setTags ] = useState([]);
+
+    async function fetchProduct(){
+        const response = await api.get(`/products/${params.id}`);
+        setData(response.data.product);
+    };
+
+    async function fetchTags(){
+        const response = await api.get(`/products/${params.id}`);
+        setTags(response.data.tags);
+    };
+
+    useEffect(() => {
+        fetchProduct();
+        fetchTags();
+    },[])
     return(
         <Container>
             <HeaderAdmin/>
@@ -18,59 +43,41 @@ export function MealAdmin(){
                 <TextButton
                     title='Voltar'
                     icon={MdOutlineKeyboardArrowLeft}
+                    onClick={() => navigate(-1)}
                 />
 
                 <Main>
                     <img
-                        src={SaladaRavanello}
+                        src={`${baseUrlImg}${data.photo}`}
                         alt=""
                     />
 
                     <Description>
-                        <h1>Salada Ravanello</h1>
+                        <h1>{data.name}</h1>
 
                         <p>
-                            Rabanetes, folhas verdes 
-                            e molho agridoce salpicados com gergelim. 
-                            O pão naan dá um toque especial.
+                            {data.description}
                         </p>
 
                         <Ingredients>
-                            <Tags
-                                title='alface'
-                            />
 
-                            <Tags
-                                title='cebola'
-                            />
-
-                            <Tags
-                                title='pão naan'
-                            />
-
-                            <Tags
-                                title='pepino'
-                            />
-
-                            <Tags
-                                title='rabanete'
-                            />
-
-                            <Tags
-                                title='tomate'
-                            />
-
+                            {
+                                tags && tags.map((tag, index) => (
+                                    <Tags
+                                        key={index}
+                                        title={tag.name}
+                                    />
+                                ))
+                            }
                         </Ingredients>
 
                         <Order>
-                            <div>
-                                <FiMinus size={40}/>
-                                <h3>01</h3>
-                                <FiPlus size={40}/>
-                            </div>
+                            
                             <Button
                                 title='Editar Prato'
+                                onClick={() => navigate(`/editmeal/${data.id}`)}
                             />
+
                         </Order>
                     </Description>
                 </Main>
