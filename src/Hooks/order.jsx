@@ -18,11 +18,17 @@ export function OrderProvider({ children }){
           setCart(prevState => [...prevState, newOrder]);
         };
       };
+      
+      function deleteFromCart(id){
+        const newCart = cart.filter(product => product.id !== id)
+        setCart(newCart)
+    };
 
     return(
         <OrderContext.Provider value={{
             handleCart,
-            cart: cart
+            cart: cart,
+            deleteFromCart
         }}>
             {children}
         </OrderContext.Provider>

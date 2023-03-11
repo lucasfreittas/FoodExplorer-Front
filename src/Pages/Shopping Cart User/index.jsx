@@ -18,7 +18,7 @@ import { api } from '../../Services/Axios';
 
 export function ShoppingCartUser(){
     const location = useLocation();
-    const { cart } = useCart();
+    const { cart, deleteFromCart } = useCart();
     const [ total, setTotal ] = useState();
     const baseUrlImg = `${api.defaults.baseURL}/files/`
     
@@ -29,11 +29,11 @@ export function ShoppingCartUser(){
         });
 
         setTotal(total)
-    };
+    };   
 
     useEffect(() => {
         handleTotal()
-    }, [])
+    }, [cart])
       
 
     return(
@@ -56,6 +56,7 @@ export function ShoppingCartUser(){
                                 title={`${product.quantities}x ${product.name}`}
                                 price={`R$ ${product.price * product.quantities}`}
                                 buttonName='Excluir'
+                                onClick={() => deleteFromCart(product.id)}
                                 image={`${baseUrlImg}${product.photo}`}
                             />
                         ))
