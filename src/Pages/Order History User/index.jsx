@@ -1,16 +1,29 @@
 import { Container, Content, Main  } from './styles';
+import { api } from '../../Services/Axios';
+import { useState, useEffect } from 'react';
 
 import { Header } from '../../Components/Header';
 import { TextButton } from '../../Components/TextButton';
 import { Footer } from '../../Components/Footer';
-import { OrdersTable } from '../../Components/Orders Table'
+import { OrdersTable } from '../../Components/Orders Table';
 
 
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
-import { RxDotFilled } from 'react-icons/rx';
 
 
 export function OrderHistoryUser(){
+
+    const [ allOrders, setAllOrders ] = useState([]); 
+
+    async function fetchOrders(){
+        const responseOrders = await api.get('/orders');
+        setAllOrders(responseOrders.data);
+    };
+
+    useEffect(() => {
+        fetchOrders()
+    }, [])
+
     return(
         <Container>
             <Header/>
@@ -23,7 +36,9 @@ export function OrderHistoryUser(){
                     icon={MdOutlineKeyboardArrowLeft}
                 />
 
-                <OrdersTable/>
+                <OrdersTable
+                    data={allOrders}
+                />
 
                 <Main>
                    
