@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { Header } from '../../Components/Header';
 import { TextButton } from '../../Components/TextButton';
 import { Footer } from '../../Components/Footer';
-import { OrdersTable } from '../../Components/Orders Table';
+import { OrdersTableUser } from '../../Components/Orders Table User';
 
 
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
@@ -36,7 +36,7 @@ export function OrderHistoryUser(){
                     icon={MdOutlineKeyboardArrowLeft}
                 />
 
-                <OrdersTable
+                <OrdersTableUser
                     data={allOrders}
                 />
 

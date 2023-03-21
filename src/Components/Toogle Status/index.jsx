@@ -5,7 +5,7 @@ import { FiChevronDown } from 'react-icons/fi'
 import { api } from '../../Services/Axios';
 
 
-export function ToggleStatus({status, ordersId, ...rest}) {
+export function ToggleStatus({status, ordersId, rdOnly, ...rest}) {
     const [selectedOption, setSelectedOption] = useState(status);
   
     async function handleOptionChange(event){
@@ -34,15 +34,15 @@ export function ToggleStatus({status, ordersId, ...rest}) {
 
   
     return(
-      <Container>
+      <Container rdOnly={rdOnly}>
         <RxDotFilled color={handleColor()}/>
-        <select name="Status" id="Status" value={selectedOption} onChange={e => handleOptionChange(e)}>
+        <select name="Status" id="Status" value={selectedOption} disabled={rdOnly} onChange={e => handleOptionChange(e)}>
           <option value="Pendente">Pendente</option>
           <option value="Preparando">Preparando</option>
           <option value="Entregue">Entregue</option>
           <option value="Cancelado">Cancelado</option>
         </select>
-        <FiChevronDown />
+        <FiChevronDown className='selectArrow' rdOnly={rdOnly}/>
       </Container>
     )
   }
