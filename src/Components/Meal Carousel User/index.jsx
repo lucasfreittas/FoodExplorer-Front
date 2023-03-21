@@ -35,13 +35,15 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
        
     };
 
-    function handleIncrement(index) {
+    function handleIncrement(e, index) {
+        e.stopPropagation();
         const newQuantities = [...quantities];
         newQuantities[index] += 1;
         setQuantities(newQuantities);
       }
       
-      function handleDecrement(index) {
+      function handleDecrement(e, index) {
+        e.stopPropagation();
         const newQuantities = [...quantities];
         if (newQuantities[index] > 0) {
           newQuantities[index] -= 1;
@@ -50,7 +52,8 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
       };
       
 
-      function handleAddToCart(product, quantities){
+      function handleAddToCart(e, product, quantities){
+            e.stopPropagation();
             if(quantities <= 0){
                 return
             };
@@ -109,12 +112,12 @@ export function MealCarouselUser({title, data, isFilled, ...rest}){
                             <p>{data.description}</p>
                             <h2>R$ {data.price}</h2>
                             <div>
-                                <FiMinus onClick={() => handleDecrement(index)} />
+                                <FiMinus onClick={(e) => handleDecrement(e, index)} />
                                 <span>{quantities[index]}</span>
-                                <FiPlus onClick={() => handleIncrement(index)} />
+                                <FiPlus onClick={(e) => handleIncrement(e, index)} />
                                 <Button
                                     title='incluir'
-                                    onClick={() => handleAddToCart(data, quantities[index])}
+                                    onClick={(e) => handleAddToCart(e, data, quantities[index])}
                                     
                                     />
                             </div>

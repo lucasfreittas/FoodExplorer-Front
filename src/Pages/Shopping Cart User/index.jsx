@@ -57,7 +57,7 @@ export function ShoppingCartUser(){
                                 price={`R$ ${product.price * product.quantities}`}
                                 buttonName='Excluir'
                                 onClick={() => deleteFromCart(product.id)}
-                                image={`${baseUrlImg}${product.photo}`}
+                                image={product.photo}
                             />
                         ))
                     }
