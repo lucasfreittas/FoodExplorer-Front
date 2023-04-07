@@ -8,7 +8,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    @media(max-width: 768px){
+    @media(max-width: 1000px){
         flex-direction: column;
         padding: 0;
         margin-bottom: 50px;
@@ -27,15 +27,16 @@ export const Logo = styled.div`
     justify-content: center;
 
     img {
-        width: 322px;
+        width: 400px;
         margin-bottom: 20px;
+        margin-right: 50px;
 
         @media(max-width: 550px){
             width: 240px;
         }        
     }
 
-    @media(max-width: 768px){
+    @media(max-width: 1000px){
         width: 100%;
         margin-top: 60px;
         margin-bottom: 20px;
