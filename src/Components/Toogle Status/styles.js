@@ -43,9 +43,9 @@ export const Container = styled.div`
     margin-left: 5px;
   }
 
-  svg:last-child {
+  .selectArrow {
     font-size: 27px;
-    color: ${({theme}) => theme.COLORS.LIGHT_400};
+    color: ${({theme, rdOnly}) => rdOnly ? 'transparent' : theme.COLORS.LIGHT_600 };
     position: absolute;
     right: 15px;
   }

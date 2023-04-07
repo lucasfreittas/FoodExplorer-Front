@@ -62,8 +62,6 @@ export function MealUser(){
         } else {
             return total
         }
-
-       
     }
 
 

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { ToggleStatus } from '../Toogle Status';
 
-export function OrdersTable({data, ...rest}){
+export function OrdersTableUser({data, ...rest}){
 
     return(
         <Container>
@@ -24,7 +24,7 @@ export function OrdersTable({data, ...rest}){
                                 <td><ToggleStatus
                                         status={order.status}
                                         ordersId={order.id}
-                                        rdOnly={false}
+                                        rdOnly
                                     />
                                 </td>
                                 <td>{order.id.toString().padStart(8, '0')}</td>
