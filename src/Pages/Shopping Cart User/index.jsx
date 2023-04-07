@@ -7,7 +7,6 @@ import { ProductsList } from '../../Components/Products List';
 import { PaymentCard } from '../../Components/Payment';
 
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
-import SaladaRavanello from '../../Assets/salada-ravanello.png'
 
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';

@@ -12,7 +12,7 @@ import { TextButton } from '../../Components/TextButton';
 
 export function SignIn(){
     const navigate = useNavigate();
-    
+
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
@@ -31,7 +31,7 @@ export function SignIn(){
     return(
         <Container>
             <Logo>
-                <img src={LogoFoodExplorer} alt="" />
+                <img src={LogoFoodExplorer} alt="Logo Food Explorer" />
             </Logo>
 
             <Form>

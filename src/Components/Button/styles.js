@@ -7,13 +7,13 @@ export const Container = styled.button`
     gap: 6px;
     background-color: ${({theme, second}) => second ? theme.COLORS.DARK_800 : theme.COLORS.TOMATO_100};
     color: ${({theme}) => theme.COLORS.LIGHT_100};
-    padding:  18px;
+    padding:  16px;
     border-radius: 8px;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: normal;
     font-family: 'Poppins', sans-serif;
-    min-width: max-content;
+
 
     &:hover{
         background-color: ${({theme, second}) => second ? theme.COLORS.DARK_900 : theme.COLORS.TOMATO_200};
@@ -24,6 +24,3 @@ export const Container = styled.button`
         color: ${({theme}) => theme.COLORS.TOMATO_100};
     }
 `;
-
-
-//test
