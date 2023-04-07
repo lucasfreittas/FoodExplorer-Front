@@ -14,6 +14,10 @@ export const Container = styled.div`
         margin-bottom: 50px;
         overflow: auto;
     }
+
+    @media(max-width: 550px){
+        background-color: ${({theme}) => theme.COLORS.DARK_700};
+    }
 `;
 
 export const Logo = styled.div`
@@ -25,19 +29,29 @@ export const Logo = styled.div`
     img {
         width: 322px;
         margin-bottom: 20px;
+
+        @media(max-width: 550px){
+            width: 240px;
+        }        
     }
 
     @media(max-width: 768px){
         width: 100%;
         margin-top: 60px;
         margin-bottom: 20px;
+        height: max-content;
     }
+
+    @media(max-width: 550px){
+        margin-top: 0px;
+    }
+
 `;
 
 export const Form = styled.form`
 
     display: flex;
-    width: 476px;
+    width: 47.6rem;
     border-radius: 2.4rem;
     flex-direction: column;
     background-color: ${({theme}) => theme.COLORS.DARK_700};
@@ -57,4 +71,9 @@ export const Form = styled.form`
         align-items: center;
         justify-content: center;
     };
+
+    @media(max-width: 550px){
+        width: 100vw;
+        padding: 20px;
+    }
 `;
