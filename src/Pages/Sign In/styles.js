@@ -7,6 +7,13 @@ export const Container = styled.div`
     padding: 0 8% 0 0;
     justify-content: center;
     align-items: center;
+
+    @media(max-width: 768px){
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 50px;
+        overflow: auto;
+    }
 `;
 
 export const Logo = styled.div`
@@ -17,6 +24,12 @@ export const Logo = styled.div`
 
     img {
         width: 322px;
+        margin-bottom: 20px;
+    }
+
+    @media(max-width: 768px){
+        width: 100%;
+        margin-top: 60px;
         margin-bottom: 20px;
     }
 `;
