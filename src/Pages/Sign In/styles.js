@@ -16,7 +16,7 @@ export const Logo = styled.div`
     justify-content: center;
 
     img {
-        width: 324px;
+        width: 322px;
         margin-bottom: 20px;
     }
 `;
