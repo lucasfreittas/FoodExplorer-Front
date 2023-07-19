@@ -8,7 +8,7 @@ export const Container = styled.footer`
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 170px;
+    padding: 0 80px;
 
     font-family: 'Roboto';
     font-weight: 400;

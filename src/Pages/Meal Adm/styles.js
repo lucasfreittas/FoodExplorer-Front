@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: grid;
-    height: 112vh;
     overflow: hidden;
     grid-template-rows: 146px auto 120px;
     grid-template-areas: 
@@ -12,8 +11,13 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
     grid-area: content;
-    padding: 48px 170px;
+    width: 100vw;
+    justify-content: center;
+    padding: 80px;
 
 `;
 
@@ -21,7 +25,6 @@ export const Main = styled.div`
     grid-area: content;
     display: flex;
     gap: 70px;
-    margin-top: 85px;
     justify-content: center;
     align-items: center;
 
