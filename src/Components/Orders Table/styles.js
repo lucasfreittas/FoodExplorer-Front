@@ -11,7 +11,7 @@ export const Table = styled.table`
     text-align: left;
     font-family: 'Roboto';
     font-weight: 400;
-    font-size: 20px;
+    font-size: 3.2rem;
     color: ${({theme}) => theme.COLORS.LIGHT_400};
     border-spacing: 0px;
     border: ${({theme}) => `2px solid ${theme.COLORS.DARK_1000}`};
@@ -21,7 +21,7 @@ export const Table = styled.table`
         padding: 18px 28px;
         border: ${({theme}) => `2px solid ${theme.COLORS.DARK_1000}`};
         vertical-align: middle;
-        
+        font-size: 18px;
         
         
         > svg {

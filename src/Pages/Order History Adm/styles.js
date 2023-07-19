@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const Content = styled.section`
     grid-area: content;
-    padding: 48px 170px;
+    padding: 48px 80px;
     justify-content: flex-start;
 
     > h1 {
