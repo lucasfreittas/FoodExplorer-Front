@@ -12,7 +12,7 @@ export const Container = styled.footer`
 
     font-family: 'Roboto';
     font-weight: 400;
-    font-size: 20px;
+    font-size: 28px;
     color: ${({theme}) => theme.COLORS.LIGHT_200};
 
     > img {
