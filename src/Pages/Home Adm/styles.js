@@ -15,8 +15,9 @@ export const Content = styled.div`
     flex-direction: column;
     gap: 100px;
     grid-area: content;
-    width: 100%;
-    padding: 220px 170px;
+    width: 100vw;
+    justify-content: center;
+    padding: 80px;
 `;
 
 export const BannerHero = styled.div`
@@ -25,19 +26,21 @@ export const BannerHero = styled.div`
     align-items: center;
     width: 100%;
     height: 380px;
+    margin-top: 64px;
     background-image: linear-gradient(rgba(9, 30, 38, 1), rgba(0, 19, 28, 1));
     border-radius: 8px;
 
     .imgWrapper {
-        width: 800px;
+        width: 200px;
+        height: 100%;
         position: relative;
     };
 
    img {
-        transform: scale(0.7);
+        transform: scale(0.6);
         position: absolute;
         left: -300px;
-        top: -493px;
+        bottom: -48%;
         
     };
 
