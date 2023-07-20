@@ -21,6 +21,7 @@ export const Table = styled.table`
         padding: 18px 28px;
         border: ${({theme}) => `2px solid ${theme.COLORS.DARK_1000}`};
         vertical-align: middle;
+        font-size: 18px;
         
         
         
