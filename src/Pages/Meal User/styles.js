@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: grid;
-    height: 112vh;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     grid-template-rows: 146px auto 120px;
     grid-template-areas: 
@@ -13,15 +14,15 @@ export const Container = styled.div`
 
 export const Content = styled.section`
     grid-area: content;
-    padding: 48px 170px;
+    padding: 48px 80px;
 
 `;
 
 export const Main = styled.div`
     grid-area: content;
     display: flex;
-    gap: 70px;
-    margin-top: 85px;
+    gap: 140px;
+    margin: 40px 0;
     justify-content: center;
     align-items: center;
 
@@ -31,7 +32,6 @@ export const Main = styled.div`
 `;
 
 export const Description = styled.div`
-    width: 800px;
     > h1 {
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
