@@ -15,13 +15,13 @@ export const Content = styled.div`
     flex-direction: column;
     gap: 100px;
     grid-area: content;
-    width: 100%;
-    padding: 220px 170px;
+    width: 100vw;
+    padding: 140px 80px;
+    justify-content: center;
 `;
 
 export const BannerHero = styled.div`
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 380px;
@@ -34,10 +34,10 @@ export const BannerHero = styled.div`
     };
 
    img {
-        transform: scale(0.7);
+        transform: scale(0.6);
         position: absolute;
-        left: -300px;
-        top: -493px;
+        left: -350px;
+        bottom: -370px;
         
     };
 
@@ -47,7 +47,7 @@ export const BannerHero = styled.div`
         display: flex;
         flex-direction: column;
         gap: 10px;
-        margin-left: 40px;
+        margin-right: 40px;
 
         > h1 {
             font-family: 'Poppins', sans-serif;
