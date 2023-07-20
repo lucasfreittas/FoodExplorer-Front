@@ -9,7 +9,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
 
-    padding: 0 170px;
+    padding: 0 80px;
     
 
     > img {
