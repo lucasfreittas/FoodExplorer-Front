@@ -17,4 +17,8 @@ export const Container = styled.div`
         cursor: pointer;
     };
 
+    > button:nth-child(5) {
+        min-width: max-content;
+    }
+
 `;

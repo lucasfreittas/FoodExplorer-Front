@@ -34,7 +34,6 @@ export const Main = styled.div`
 `;
 
 export const Description = styled.div`
-    width: 800px;
     > h1 {
         font-family: 'Poppins', sans-serif;
         font-weight: 500;

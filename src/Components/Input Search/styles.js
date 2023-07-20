@@ -11,7 +11,6 @@ export const Container = styled.div`
     padding-left: 16px;
     border-radius: 10px;
     width: 100%;
-    max-width: 400px;
 `;
 
 export const Input = styled.input`
