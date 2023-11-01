@@ -73,4 +73,8 @@ export const Credit = styled.div`
         margin: 32px 0;
         gap: 24px;
     }
+
+    >  .pixWrapper{
+        background-color: red;
+    }
 `;

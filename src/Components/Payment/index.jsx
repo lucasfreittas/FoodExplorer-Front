@@ -6,8 +6,11 @@ import { Button } from '../Button';
 import { Receipt } from '../../Assets/receipt';
 import { useCart } from '../../Hooks/order';
 import { api } from '../../Services/Axios';
+import { useNavigate } from 'react-router-dom';
 
 export function PaymentCard(){
+    const navigate = useNavigate();
+
     const [content, SetContent] = useState('Pix');
     const { cart, deleteFromCart } = useCart();
     const [ total, setTotal ] = useState();
@@ -19,7 +22,6 @@ export function PaymentCard(){
         });
 
         setTotal(amount)
-        console.log(total)
     };
     
     async function makeOrder(){
@@ -28,10 +30,26 @@ export function PaymentCard(){
             description,
             total
         };
-        await api.post('/orders', newOrder)
+
+        try {
+            await api.post('/orders', newOrder)
+            alert ('Pedido feito com sucesso!')
+            navigate('/')
+        } catch (error){
+            if(error.response){
+                alert(error.response.data.message);
+            } else {
+                navigate('/')
+            }
+        };
     };
 
-    const pixContent = <img src={QRCode} alt="" />
+    const pixContent = 
+        <div className='pixWrapper'>
+            <img src={QRCode} alt="" />
+            <Button title='Finalizar o pagamento' icon={Receipt} onClick={() => makeOrder()}/>
+        </div>
+        
     const creditContent = 
         <Credit>
             <Input label='Número do Cartão' placeholder='0000 0000 0000 0000' type='number'/>

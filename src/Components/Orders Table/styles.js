@@ -24,11 +24,18 @@ export const Table = styled.table`
         font-size: 18px;
         
         
-        > svg {
+        button {
             font-size: 40px;
+            width: 100%;
+            background: none;
+            border: none;
             vertical-align: middle;
             margin-bottom: 4px;
-            color: ${({theme}) => theme.COLORS.TOMATO_300};
+            color: ${({theme}) => theme.COLORS.LIGHT_700};
+
+            :hover{
+                color: ${({theme}) => theme.COLORS.TOMATO_300};
+            }
         }
     };
 
