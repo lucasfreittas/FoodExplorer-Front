@@ -51,6 +51,7 @@ export function AddMeal(){
             const response = await api.post('/products', newProduct)
             await api.patch(`/products/photo/${response.data.product_id}`, fileUploadForm)
             alert ('Produto criado com sucesso!')
+            navigate('/')
         } catch (error){
             if(error.response){
                 alert(error.response.data.message);

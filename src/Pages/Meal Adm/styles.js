@@ -28,12 +28,15 @@ export const Main = styled.div`
     justify-content: center;
     align-items: center;
 
+
     > img {
         width: 450px;
     }
 `;
 
 export const Description = styled.div`
+    max-width: 70rem;
+
     > h1 {
         font-family: 'Poppins', sans-serif;
         font-weight: 500;

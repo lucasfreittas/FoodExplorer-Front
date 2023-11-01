@@ -9,11 +9,13 @@ import { OrdersTable } from '../../Components/Orders Table';
 
 
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom';
 
 
 export function OrderHistoryAdmin(){
 
-    const [ allOrders, setAllOrders ] = useState([]); 
+    const [ allOrders, setAllOrders ] = useState([]);
+    const navigate = useNavigate() 
 
     async function fetchOrders(){
         const responseOrders = await api.get('/orders');
@@ -34,6 +36,7 @@ export function OrderHistoryAdmin(){
                 <TextButton
                     title='Voltar'
                     icon={MdOutlineKeyboardArrowLeft}
+                    onClick={() => navigate(-1)}
                 />
 
                 <OrdersTable

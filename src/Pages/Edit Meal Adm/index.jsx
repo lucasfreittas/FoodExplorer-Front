@@ -46,6 +46,7 @@ export function EditMeal(){
             try{
 
                 await api.patch(`/products/photo/${params.id}`, fileUploadForm)
+                
             }
             catch (error){
                 if(error.response){
@@ -67,6 +68,7 @@ export function EditMeal(){
         try {
             await api.put(`/products/${params.id}`, newProduct)
             alert ('Produto atualizado com sucesso!')
+            navigate('/')
         } catch (error){
             if(error.response){
                 alert(error.response.data.message);
@@ -77,6 +79,23 @@ export function EditMeal(){
 
         window.location.reload()
     };
+
+    async function handleDeleteMeal(event){
+        event.preventDefault()
+        const product_id = params.id
+        console.log(product_id)
+        try{
+            await api.delete(`/products/${product_id}`)
+            alert ('Produto foi deletado com sucesso!')
+            navigate('/')
+        } catch (error){
+            if(error.response){
+                alert(error.response.data.message);
+            } else{
+                alert('Não foi possível atualizar')
+            }
+        }
+    }
 
    function handlePhoto(event){
         const file = event.target.files[0];
@@ -196,7 +215,7 @@ export function EditMeal(){
                     <div className='row3'>
                          <Button
                             title='Excluir Prato'
-                            onClick={() => {}}
+                            onClick={handleDeleteMeal}
                             second
                         />
 
