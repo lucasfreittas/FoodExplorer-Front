@@ -14,6 +14,7 @@ export function HomeUser(){
    const [ refeições, setRefeições ] = useState([]);
    const [ sobremesas, setSobremesas ] = useState([]);
    const [ bebidas, setBebidas ] = useState([]);
+   const [ search, setSearch ] = useState('')
 
 
    function handleCategory(){
@@ -46,14 +47,18 @@ export function HomeUser(){
     })
    }
 
+
     useEffect(() => {
+
         async function fetchProducts(){
             const response = await api.get('/products');
             setProducts(response.data);
 
             handleCategory();
+            
         };
 
+        
         fetchProducts();
 
     }, [products])

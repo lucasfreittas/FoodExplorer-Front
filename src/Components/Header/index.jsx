@@ -14,6 +14,8 @@ import { TextButton } from '../TextButton';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../Hooks/order';
 
+import { api } from '../../Services/Axios'; 
+
 export function Header(){
     const { signOut } = useAuth()
     const navigate = useNavigate()
@@ -23,6 +25,16 @@ export function Header(){
     function handleSignOut(){
         signOut();
     };
+
+    async function handleSearch(){
+
+        const product = {
+            tags: 'Café'
+        }
+        const response = await api.get('/products', { params: product });
+   
+        console.log(response.data)
+      }
 
     return(
         <Container>
@@ -35,7 +47,9 @@ export function Header(){
             <InputSearch
                 placeholder='Busque por pratos ou ingredientes'
                 icon={FiSearch}
-                className='search'    
+                className='search' 
+                onClick={handleSearch}
+               
             />
 
             <TextButton
