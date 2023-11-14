@@ -13,27 +13,22 @@ import { TextButton } from '../TextButton';
 
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../Hooks/order';
+import { useState, useEffect } from 'react';
 
 import { api } from '../../Services/Axios'; 
 
-export function Header(){
+export function Header({onSearchChange}){
     const { signOut } = useAuth()
     const navigate = useNavigate()
-
     const { cart } = useCart();
+
 
     function handleSignOut(){
         signOut();
     };
 
-    async function handleSearch(){
-
-        const product = {
-            tags: 'Café'
-        }
-        const response = await api.get('/products', { params: product });
-   
-        console.log(response.data)
+    async function handleSearch(searchValue){   
+       onSearchChange(searchValue)
       }
 
     return(
@@ -48,8 +43,7 @@ export function Header(){
                 placeholder='Busque por pratos ou ingredientes'
                 icon={FiSearch}
                 className='search' 
-                onClick={handleSearch}
-               
+                onChange={(e) => handleSearch(e.target.value)}               
             />
 
             <TextButton
