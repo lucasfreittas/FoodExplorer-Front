@@ -1,5 +1,4 @@
 import { Container, BannerHero, Content } from './styles';
-
 import { api } from '../../Services/Axios';
 import { useState, useEffect } from 'react';
 
@@ -17,55 +16,52 @@ export function HomeAdmin(){
     const [ bebidas, setBebidas] = useState([]);
 
 
-    useEffect(() => {
-        async function fetchProducts(){
-            const response = await api.get('/products')
-            setProducts(response.data);
-            handleCategory()           
-        };
+    async function fetchProducts(value) {
+      let response;
 
-        function handleCategory() {
-            products.map(product => {
-              if (product.category === 'Refeições') {
-                setRefeições(prevState => {
-                  // Verifica se o produto já existe no estado
-                  if (prevState.some(p => p.id === product.id)) {
-                    return prevState;
-                  } else {
-                    return [...prevState, product];
-                  }
-                })
-              } else if (product.category === 'Bebidas'){
-                setBebidas(prevState => {
-                    // Verifica se o produto já existe no estado
-                    if (prevState.some(p => p.id === product.id)) {
-                      return prevState;
-                    } else {
-                      return [...prevState, product];
-                    }
-                  })
-              } else if (product.category === 'Sobremesas') {
-                setSobremesas(prevState => {
-                    // Verifica se o produto já existe no estado
-                    if (prevState.some(p => p.id === product.id)) {
-                      return prevState;
-                    } else {
-                      return [...prevState, product];
-                    }
-                  })
-              }
-            })
-          };
+      if (value) {
+         const product = {
+            search: value
+         };
+         response = await api.get('/products', { params: product });
+      } else {
+         response = await api.get('/products');
+      }
 
+      setProducts(response.data);
+   }
 
-        fetchProducts()
-        
+   function handleCategory(updatedProducts) {
+      const refeicoes = [];
+      const bebidas = [];
+      const sobremesas = [];
 
-        
-    }, [products])
+      updatedProducts.forEach(product => {
+         if (product.category === 'Refeições') {
+            refeicoes.push(product);
+         } else if (product.category === 'Bebidas') {
+            bebidas.push(product);
+         } else if (product.category === 'Sobremesas') {
+            sobremesas.push(product);
+         }
+      });
+
+      setRefeições(refeicoes);
+      setBebidas(bebidas);
+      setSobremesas(sobremesas);
+   }
+
+   useEffect(() => {
+      fetchProducts();
+   }, []);
+
+   useEffect(() => {
+      handleCategory(products);
+   }, [products]);
+
     return(
         <Container>
-            <HeaderAdmin/>
+            <HeaderAdmin onSearchChange={fetchProducts}/>
             <Content>
                 <BannerHero>
                     <div className='imgWrapper'>

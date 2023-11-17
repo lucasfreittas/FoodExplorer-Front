@@ -12,14 +12,17 @@ import { TextButton } from '../TextButton';
 
 import { useNavigate } from 'react-router-dom';
 
-export function HeaderAdmin(){
+export function HeaderAdmin({onSearchChange}){
     const { signOut } = useAuth();
-
     const navigate = useNavigate()
 
     function handleSignOut(){
         signOut()
     };
+
+    async function handleSearch(searchValue){   
+        onSearchChange(searchValue)
+       }
 
     return(
         <Container>
@@ -32,7 +35,8 @@ export function HeaderAdmin(){
             <InputSearch
                 placeholder='Busque por pratos ou ingredientes'
                 icon={FiSearch}
-                className='search'    
+                className='search'
+                onChange={(e) => handleSearch(e.target.value)}    
             />
 
              <TextButton

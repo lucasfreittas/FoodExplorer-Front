@@ -85,6 +85,7 @@ export const Card = styled.div`
     flex-direction: column;
     align-items: center;
     min-width: 450px;
+    width: 450px;
     background-color: ${({theme}) => theme.COLORS.DARK_200};
     border-radius: 16px;
     padding: 28px;
