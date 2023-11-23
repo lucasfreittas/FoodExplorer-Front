@@ -17,6 +17,7 @@ export const Container = styled.div`
 
     @media(max-width: 550px){
         background-color: ${({theme}) => theme.COLORS.DARK_700};
+        width: 100%;
     }
 `;
 
@@ -59,12 +60,14 @@ export const Form = styled.form`
     padding: 56px;
     gap: 40px;
 
+
     > h1 {
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-size: clamp(22px, 3.2rem, 50px);
         line-height: 140%;
         font-weight: 500;
+        width: 100%;
     };
 
     > :last-child{
@@ -74,7 +77,7 @@ export const Form = styled.form`
     };
 
     @media(max-width: 550px){
-        width: 100vw;
-        padding: 20px;
+        width: 100%;
+        padding: 16px;
     }
 `;
