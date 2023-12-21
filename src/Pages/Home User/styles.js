@@ -8,6 +8,18 @@ export const Container = styled.div`
     "content"
     "footer";
     overflow: hidden;
+
+    @media(max-width: 1000px){
+        .headerDesktop{
+            display: none;
+            z-index: 2;
+        }
+
+        .headerMobile{
+            display: block;
+            z-index: 2;
+        }
+    }
 `;
 
 export const Content = styled.div`

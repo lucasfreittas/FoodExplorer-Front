@@ -3,6 +3,7 @@ import { api } from '../../Services/Axios';
 import { useState, useEffect } from 'react';
 
 import { HeaderAdmin } from '../../Components/Header Admin';
+import { HeaderAdminMobile } from '../../Components/Header Admin Mobile';
 import { MealCarouselAdmin } from '../../Components/Meal Carousel Admin';
 import { Footer } from '../../Components/Footer';
 
@@ -14,6 +15,7 @@ export function HomeAdmin(){
     const [ refeições, setRefeições] = useState([]);
     const [ sobremesas, setSobremesas] = useState([]);
     const [ bebidas, setBebidas] = useState([]);
+    
 
 
     async function fetchProducts(value) {
@@ -51,6 +53,8 @@ export function HomeAdmin(){
       setSobremesas(sobremesas);
    }
 
+
+
    useEffect(() => {
       fetchProducts();
    }, []);
@@ -61,7 +65,15 @@ export function HomeAdmin(){
 
     return(
         <Container>
-            <HeaderAdmin onSearchChange={fetchProducts}/>
+            <div className='headerDesktop'>
+                  <HeaderAdmin onSearchChange={fetchProducts} />
+            </div> 
+            
+            <div className='headerMobile'>
+               <HeaderAdminMobile onSearchChange={fetchProducts} />
+            </div>
+              
+            
             <Content>
                 <BannerHero>
                     <div className='imgWrapper'>

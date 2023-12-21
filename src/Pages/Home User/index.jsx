@@ -3,6 +3,7 @@ import { api } from '../../Services/Axios';
 import { useState, useEffect } from 'react';
 
 import { Header } from '../../Components/Header';
+import { HeaderMobile } from '../../Components/Header Mobile';
 import { MealCarouselUser } from '../../Components/Meal Carousel User';
 import { Footer } from '../../Components/Footer';
 
@@ -61,7 +62,13 @@ export function HomeUser(){
 
     return( 
         <Container>
-            <Header onSearchChange={fetchProducts}/>
+            <div className='headerDesktop'>
+                  <Header onSearchChange={fetchProducts} />
+            </div> 
+            
+            <div className='headerMobile'>
+               <HeaderMobile onSearchChange={fetchProducts} />
+            </div>
             <Content>
                 <BannerHero>
                     <div className='imgWrapper'>

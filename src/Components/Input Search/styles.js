@@ -18,12 +18,12 @@ export const Input = styled.input`
     width: 100%;
     border: none;
     height: 65px;
-    font-size: 20px;
+    font-size: 1.6rem;
     font-weight: normal;
     color: ${({theme}) => theme.COLORS.LIGHT_100};
 
     &::placeholder{
-        font-size: 20px;
+        font-size: 1.6rem;
         font-weight: normal;
         color: ${({theme}) => theme.COLORS.LIGHT_500};
     };

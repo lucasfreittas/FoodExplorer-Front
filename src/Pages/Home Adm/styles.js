@@ -8,6 +8,19 @@ export const Container = styled.div`
     "content"
     "footer";
     overflow: hidden;
+
+
+    @media(max-width: 1000px){
+        .headerDesktop{
+            display: none;
+            z-index: 2;
+        }
+
+        .headerMobile{
+            display: block;
+            z-index: 2;
+        }
+    }
 `;
 
 export const Content = styled.div`
@@ -34,13 +47,23 @@ export const BannerHero = styled.div`
         width: 200px;
         height: 100%;
         position: relative;
+
+        @media(max-width: 1000px){
+            width: 600px;
+        }   
     };
 
    img {
-        transform: scale(0.6);
+        transform: scale(0.5);
         position: absolute;
-        left: -300px;
-        bottom: -48%;
+        left: -400px;
+        bottom: -58%;
+
+        @media(max-width: 1000px){
+            transform: scale(0.4);
+            left: -450px;
+            bottom: -68%;
+        }   
         
     };
 
@@ -57,6 +80,10 @@ export const BannerHero = styled.div`
             font-weight: 500;
             color: ${({theme}) => theme.COLORS.LIGHT_300};
             font-size: 58px;
+
+            @media(max-width: 1000px){
+                font-size: 40px;
+            }
         };
 
         > p {
@@ -65,5 +92,7 @@ export const BannerHero = styled.div`
             color: ${({theme}) => theme.COLORS.LIGHT_300};
             font-size: 22px;
         }
+
+
     }
 `;
