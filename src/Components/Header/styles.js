@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     grid-area: header;
     width: 100vw;
+    height: 11.4rem;
     background-color: ${({theme}) => theme.COLORS.DARK_600};
     gap: 32px;
 
@@ -13,7 +14,7 @@ export const Container = styled.div`
     
 
     > img {
-        width: 280px;
+        max-width: 198px;
         cursor: pointer;
     };
 

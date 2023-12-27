@@ -1,7 +1,7 @@
 import { Container, MenuClosed, MenuOpen } from './styles';
 import { useAuth } from '../../Hooks/auth';
 
-import LogoAdm from '../../Assets/logo-admin.svg'
+import LogoUser from '../../Assets/logo-foodexplorer.svg'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FiSearch } from 'react-icons/fi'
 import { RxExit } from 'react-icons/rx'
@@ -14,6 +14,7 @@ import { Button } from '../Button';
 import { TextButton } from '../TextButton';
 import { Footer } from '../Footer';
 
+import { useCart } from '../../Hooks/order';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -21,6 +22,7 @@ export function HeaderMobile({onSearchChange}){
     const { signOut } = useAuth();
     const navigate = useNavigate()
     const [menuOpen, setMenuOpen] = useState(false);
+    const { cart } = useCart();
 
     function handleSignOut(){
         signOut()
@@ -49,9 +51,11 @@ export function HeaderMobile({onSearchChange}){
                             className='search'
                             onChange={(e) => handleSearch(e.target.value)}    
                         />
-                        <button onClick={() => navigate('/newmeal')}>Novo Prato</button>
+                        <button onClick={() => navigate('/history')}>Histórico de Pedidos</button>
+                        <button onClick={() => navigate('/favorites')}>Meus Favoritos</button>
                         <button onClick={handleSignOut}>Sair</button>
                     </div>
+
                     <Footer/>
                     
                 </MenuOpen>
@@ -63,10 +67,18 @@ export function HeaderMobile({onSearchChange}){
                     />       
 
                     <img
-                        src={LogoAdm}
+                        src={LogoUser}
                         alt="Logo FoodExplorer"
                         onClick={() => navigate('/')}
                     />
+
+                    <div className='cart'>
+                        <Button
+                            title={`(${cart.length})`}
+                            icon={Receipt}
+                            onClick={() => navigate('/cart')}
+                        />
+                    </div>
                 </MenuClosed>
             )}
 

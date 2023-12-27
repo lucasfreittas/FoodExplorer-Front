@@ -9,7 +9,7 @@ export const Container = styled.div`
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
         color: ${({theme}) => theme.COLORS.LIGHT_300};
-        font-size: 18px;
+        font-size: 44px;
  
     };
 
@@ -64,6 +64,17 @@ export const Container = styled.div`
       
     };
 
+    @media(max-width: 550px){
+       > h1 {
+        font-size: 18px;
+        margin-bottom: 24px;
+       }
+
+       .left, .right{
+        display: none;
+       }
+    } 
+
  
 `;
 
@@ -80,6 +91,10 @@ export const Carousel = styled.div`
 
     ::-webkit-scrollbar {
         height: 0px;
+    }
+
+    @media(max-width: 500px) {
+        gap: 16px;
     }
   
 
@@ -173,5 +188,65 @@ export const Card = styled.div`
             margin-left: 20px;
             width: 120px;
         }
+
+        @media(max-width: 550px) {
+
+        flex-wrap: wrap;
+        justify-content: center;
+
+         > svg{
+            font-size: 24px;
+            margin: 16px 0;
+         }
+         
+         > span{
+            font-size: 24px;
+         
+         }
+
+         > Button {
+            width: 100%;
+            height: 32px;
+            font-size: 14px;
+            border-radius: 4px;
+            margin-left: 0;
+         }
+        }
+    }
+
+    @media(max-width: 550px){
+       min-width: 210px;
+       height: 292px;
+       justify-content: center;
+
+        > img {
+        width: 88px;
+        };
+
+        > h3 {
+        font-size: 14px;
+        margin: 12px;
+        }
+
+        > h2{
+            font-size: 16px;
+            margin: 0px;
+        }
+        
+        > p {
+            display: none;
+        }
+
+       > svg {
+        font-size: 24px;
+       }
+
+       > .filled{
+        font-size: 24px;
+       }
+
+       > .unfilled{
+        font-size: 24px;;
+       }
     }
 `;

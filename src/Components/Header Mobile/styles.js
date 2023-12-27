@@ -17,9 +17,15 @@ export const MenuClosed = styled.div`
     align-items: center;
     padding: 2.8rem;
 
-    > button {
+
+     button {
         background-color: transparent;
         padding: 0;
+        font-size: 16px;
+
+        > svg{
+            font-size: 10px;
+        }
 
         :hover{
             background-color: transparent;
@@ -28,7 +34,7 @@ export const MenuClosed = styled.div`
     
 
     > img {
-        height: 4rem;
+        height: 2.5rem;
         width: 100%;
         cursor: pointer;
     };

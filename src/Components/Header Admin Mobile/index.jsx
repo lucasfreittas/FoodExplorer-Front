@@ -50,6 +50,7 @@ export function HeaderAdminMobile({onSearchChange}){
                             onChange={(e) => handleSearch(e.target.value)}    
                         />
                         <button onClick={() => navigate('/newmeal')}>Novo Prato</button>
+                        <button onClick={() => navigate('/history')}>Histórico de Pedidos</button>
                         <button onClick={handleSignOut}>Sair</button>
                     </div>
                     <Footer/>
@@ -69,31 +70,6 @@ export function HeaderAdminMobile({onSearchChange}){
                     />
                 </MenuClosed>
             )}
-
-            
-
-            {/* <InputSearch
-                placeholder='Busque por pratos ou ingredientes'
-                icon={FiSearch}
-                className='search'
-                onChange={(e) => handleSearch(e.target.value)}    
-            /> */}
-
-             {/* <TextButton
-                title='Histórico de Pedidos'
-                onClick={() => navigate('/history')}
-            />
-
-            <Button
-                title='Novo Prato'
-                className='novoPrato'
-                onClick={() => navigate('/newmeal')}
-            />
-
-            <TextButton
-                icon={RxExit}
-                onClick={handleSignOut}
-            /> */}
 
         </Container>
     )
