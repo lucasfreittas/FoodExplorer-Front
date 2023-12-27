@@ -2,12 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: grid;
+    width: 100%;
     grid-template-rows: 146px auto 120px;
     grid-template-areas: 
     "header"
     "content"
     "footer";
     overflow: hidden;
+
+    .headerMobile{
+            display: none;
+            z-index: 2;
+        }
 
 
     @media(max-width: 1000px){
@@ -21,6 +27,10 @@ export const Container = styled.div`
             z-index: 2;
         }
     }
+
+    @media(max-width: 1000px){
+        display: block;
+        }
 `;
 
 export const Content = styled.div`
@@ -29,8 +39,15 @@ export const Content = styled.div`
     gap: 100px;
     grid-area: content;
     width: 100vw;
+    max-width: 1440px;
     justify-content: center;
     padding: 80px;
+    margin: auto;
+
+    @media(max-width: 550px){
+        padding: 16px;
+        gap: 24px;
+    }
 `;
 
 export const BannerHero = styled.div`
@@ -47,10 +64,6 @@ export const BannerHero = styled.div`
         width: 200px;
         height: 100%;
         position: relative;
-
-        @media(max-width: 1000px){
-            width: 600px;
-        }   
     };
 
    img {
@@ -59,11 +72,11 @@ export const BannerHero = styled.div`
         left: -400px;
         bottom: -58%;
 
-        @media(max-width: 1000px){
-            transform: scale(0.4);
-            left: -450px;
-            bottom: -68%;
-        }   
+        @media(max-width: 550px){
+        max-height: 220px ;
+        left: -100%;
+        bottom: -48%;
+        }
         
     };
 
@@ -73,6 +86,7 @@ export const BannerHero = styled.div`
         display: flex;
         flex-direction: column;
         gap: 10px;
+        padding: 30px;
         margin-left: 40px;
 
         > h1 {
@@ -81,8 +95,8 @@ export const BannerHero = styled.div`
             color: ${({theme}) => theme.COLORS.LIGHT_300};
             font-size: 58px;
 
-            @media(max-width: 1000px){
-                font-size: 40px;
+            @media(max-width: 550px){
+                font-size: 18px;
             }
         };
 
@@ -91,8 +105,26 @@ export const BannerHero = styled.div`
             font-weight: 400;
             color: ${({theme}) => theme.COLORS.LIGHT_300};
             font-size: 22px;
+
+            @media(max-width: 550px){
+                font-size: 12px;
+            }
         }
 
+        @media(max-width: 550px){
+                width: 100%;
+                padding: 8px;
+                margin-left: 16px;
+                max-height: 100%;
+                max-width: 100%;
+            }
 
     }
+
+
+    @media(max-width: 550px){
+            height: 120px;
+            margin-top: 16px;
+            
+        }   
 `;

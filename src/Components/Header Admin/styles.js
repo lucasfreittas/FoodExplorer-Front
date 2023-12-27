@@ -15,7 +15,7 @@ export const Container = styled.div`
     
 
     > img {
-        width: 750px;
+        max-width: 198px;
         cursor: pointer;
     };
 

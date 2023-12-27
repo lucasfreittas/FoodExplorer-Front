@@ -44,12 +44,6 @@ export function MealCarouselAdmin({title, data, ...rest}){
                             <h3>{data.name}</h3>
                             <p>{data.description}</p>
                             <h2>R$ {data.price}</h2>
-                            <div>
-                                <FiMinus/>
-                                <span>01</span>
-                                <FiPlus/>
-                                <Button title='incluir' disabled/>
-                            </div>
                 </Card>
                     ))
                 }

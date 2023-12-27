@@ -62,6 +62,17 @@ export const Container = styled.div`
         color: ${({theme}) => theme.COLORS.LIGHT_100};
       
     };
+
+    @media(max-width: 550px){
+       > h1 {
+        font-size: 18px;
+        margin-bottom: 24px;
+       }
+
+       .left, .right{
+        display: none;
+       }
+    } 
 `;
 
 export const Carousel = styled.div`
@@ -75,6 +86,10 @@ export const Carousel = styled.div`
 
     ::-webkit-scrollbar {
         height: 0px;
+    }
+
+    @media(max-width: 500px) {
+        gap: 16px;
     }
   
 
@@ -161,5 +176,36 @@ export const Card = styled.div`
             margin-left: 20px;
             width: 120px;
         }
+        
+    }
+
+    @media(max-width: 550px){
+       min-width: 210px;
+       height: 292px;
+       justify-content: center;
+
+        > img {
+        width: 88px;
+        };
+
+        > h3 {
+        font-size: 14px;
+        margin: 12px;
+        }
+
+        > h2{
+            font-size: 16px;
+            margin: 0px;
+        }
+        
+        > p {
+            display: none;
+        }
+
+       > svg {
+        font-size: 24px;
+       }
+
+
     }
 `;

@@ -9,7 +9,8 @@ export const Container = styled.div`
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
         color: ${({theme}) => theme.COLORS.LIGHT_300};
-        font-size: 44px;
+        font-size: 18px;
+ 
     };
 
     .left > button {
@@ -62,6 +63,8 @@ export const Container = styled.div`
         color: ${({theme}) => theme.COLORS.LIGHT_100};
       
     };
+
+ 
 `;
 
 export const Carousel = styled.div`

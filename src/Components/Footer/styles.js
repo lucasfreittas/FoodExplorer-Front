@@ -18,4 +18,24 @@ export const Container = styled.footer`
     > img {
         width: 280px;
     }
+
+
+    @media (max-width: 550px) {
+        display: flex;
+        align-items: center;
+        height: 7.7rem;
+        width: 100%;
+        font-size: 1.6rem;
+        padding: 0 2.8rem;
+        color: ${({theme}) => theme.COLORS.LIGHT_500};
+        
+        > img{
+            height: 20px;
+            width: 100px;
+        }
+
+        > p {
+            width: 90px;
+        }
+    }
 `;
