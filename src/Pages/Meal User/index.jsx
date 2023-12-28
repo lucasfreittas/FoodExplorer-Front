@@ -1,5 +1,7 @@
 import { Container, Content, Description, Ingredients, Order, Main  } from './styles';
+
 import { Header } from '../../Components/Header';
+import { HeaderMobile } from '../../Components/Header Mobile';
 import { TextButton } from '../../Components/TextButton';
 import { Tags } from '../../Components/Tags';
 import { Button } from '../../Components/Button';
@@ -71,7 +73,14 @@ export function MealUser(){
     },[])
     return(
         <Container>
-            <Header/>
+
+            <div className='headerDesktop'>
+                <Header/>
+            </div> 
+            
+            <div className='headerMobile'>
+               <HeaderMobile />
+            </div>
 
             <Content> 
                 <TextButton

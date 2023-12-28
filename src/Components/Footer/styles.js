@@ -24,7 +24,7 @@ export const Container = styled.footer`
         display: flex;
         align-items: center;
         height: 7.7rem;
-        width: 100%;
+        width: 100vw;
         font-size: 1.6rem;
         padding: 0 2.8rem;
         color: ${({theme}) => theme.COLORS.LIGHT_500};
@@ -35,7 +35,8 @@ export const Container = styled.footer`
         }
 
         > p {
-            width: 90px;
+            width: 100%;
+            text-align: right;
         }
     }
 `;
