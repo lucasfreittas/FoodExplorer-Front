@@ -1,5 +1,6 @@
 import { Container, Content, Description, Ingredients, Order, Main  } from './styles';
 import { HeaderAdmin } from '../../Components/Header Admin';
+import { HeaderAdminMobile } from '../../Components/Header Admin Mobile';
 import { TextButton } from '../../Components/TextButton';
 import { Tags } from '../../Components/Tags';
 import { Button } from '../../Components/Button';
@@ -37,7 +38,13 @@ export function MealAdmin(){
     },[])
     return(
         <Container>
-            <HeaderAdmin/>
+            <div className='headerDesktop'>
+                <HeaderAdmin />
+            </div> 
+            
+            <div className='headerMobile'>
+               <HeaderAdminMobile/>
+            </div>
 
             <Content> 
                 <TextButton

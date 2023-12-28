@@ -3,11 +3,29 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: grid;
     overflow: hidden;
-    grid-template-rows: 146px auto 120px;
+    grid-template-rows: 146px auto 7.7rem;
     grid-template-areas: 
     "header"
     "content"
     "footer";
+
+    .headerMobile{
+            display: none;
+            z-index: 2;
+        }
+
+
+    @media(max-width: 1000px){
+        .headerDesktop{
+            display: none;
+            z-index: 2;
+        }
+
+        .headerMobile{
+            display: block;
+            z-index: 2;
+        }
+    }
 `;
 
 export const Content = styled.section`
@@ -18,6 +36,14 @@ export const Content = styled.section`
     width: 100vw;
     justify-content: center;
     padding: 80px;
+
+    @media(max-width: 1000px) {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 0 16px;
+        width: 100vw;
+    }
 
 `;
 
@@ -31,6 +57,17 @@ export const Main = styled.div`
 
     > img {
         width: 450px;
+    }
+
+    @media(max-width: 1000px) {
+        margin: 0;
+        gap: 40px;
+        flex-direction: column;
+        width: 100%;
+
+        > img {
+            width: 264px;
+        }
     }
 `;
 
@@ -51,12 +88,39 @@ export const Description = styled.div`
         font-size: 24px;
         margin: 32px 0;
     }
+
+    @media(max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        
+        > h1{
+            font-size: 28px;
+            text-align: center;
+        }
+
+        > p {
+            font-size: 16px;
+            text-align: center;
+        }
+    }
 `;
 
 export const Ingredients = styled.div`
     display: flex;
     gap: 16px;
     margin-bottom: 56px;
+
+    @media(max-width: 1000px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
 `;
 
 export const Order = styled.div`
@@ -82,5 +146,12 @@ export const Order = styled.div`
         width: 230px;
     }
     
+    @media(max-width: 1000px) {
+       > div {
+        font-size: 40px;
+       } 
+
+       margin-bottom: 56px;
+    }
 
 `;

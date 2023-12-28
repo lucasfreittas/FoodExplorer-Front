@@ -45,7 +45,7 @@ export const Content = styled.div`
     margin: auto;
 
     @media(max-width: 550px){
-        padding: 16px;
+        padding: 24px;
         gap: 24px;
     }
 `;
