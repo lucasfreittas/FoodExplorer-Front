@@ -5,7 +5,7 @@ export function InputSelect({label, options, ...rest}){
         <Container>
             <label htmlFor={SelectBox}>{label}</label>
                 <SelectBox {...rest}>
-                    <option value='Placeholder' selected disabled>Selecione uma Categoria</option>
+                    <option value='Placeholder' defaultValue >Selecione uma Categoria</option>
                     {
                         options.map((option, index) => (
                             <option key={index} value={option.value}>

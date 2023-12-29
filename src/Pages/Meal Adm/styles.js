@@ -41,7 +41,7 @@ export const Content = styled.section`
         padding: 0;
         display: flex;
         flex-direction: column;
-        padding: 0 16px;
+        padding: 0 24px;
         width: 100vw;
     }
 

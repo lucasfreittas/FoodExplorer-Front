@@ -27,7 +27,7 @@ export function InputTags({ tags, onClick, label, setTags, ...rest}){
                 }
 
                 <InnerTag  isNew>
-                    <input {...rest} type="text" placeholder='Adicionar' />
+                    <input {...rest} type="text" placeholder='Adicionar'/>
                     <button onClick={onClick}><FiPlus/></button>
                     
                 </InnerTag>

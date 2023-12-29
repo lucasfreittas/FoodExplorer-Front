@@ -11,6 +11,12 @@ export const Container = styled.div`
         color: ${({theme}) => theme.COLORS.LIGHT_400};
         margin-bottom: 12px;
     };
+
+    @media (max-width: 1000px) {
+        label {
+            font-size: 16px;
+        }   
+    }
 `;
 
 export const Wraper = styled.div`
@@ -22,7 +28,11 @@ export const Wraper = styled.div`
     border: none;
     height: 65px;
     padding-left: 16px;
-    border-radius: 10px;
+    border-radius: 8px;
+
+    @media (max-width: 1000px) {
+        height: 48px;
+    }
 `;
 
 export const InnerTag = styled.span`
@@ -65,8 +75,23 @@ export const InnerTag = styled.span`
         align-items: center;
         background: none;
         border: none;
-        font-size: 16px;
+        font-size: 24px;
         color: ${({theme, isNew}) => isNew ? theme.COLORS.LIGHT_500 : theme.COLORS.LIGHT_100};
+    }
+
+    @media (max-width: 1000px) {
+        font-size: 16px;
+        padding:  4px 8px;
+
+        input {
+            font-size: 16px;
+            
+
+            &::placeholder{
+            font-size: 16px;
+            width: 100%;
+            }
+        }
     }
 `;
 

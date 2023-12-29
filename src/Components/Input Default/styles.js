@@ -11,14 +11,20 @@ export const Container = styled.div`
         color: ${({theme}) => theme.COLORS.LIGHT_400};
         margin-bottom: 12px;
     };
+
+    @media(max-width: 1000px){
+        label{
+            font-size: 16px;
+        }
+    }
 `;
 
 export const InputText = styled.input`
     background-color: ${({theme}) => theme.COLORS.DARK_800};
     border: none;
     height: 56px;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
     font-size: clamp(10px, 1.8rem, 18px);
     font-weight: normal;
     color: ${({theme}) => theme.COLORS.LIGHT_100};
@@ -32,6 +38,15 @@ export const InputText = styled.input`
 
     &:focus{
         outline: none;
+    }
+
+    @media(max-width: 1000px){
+        height: 48px;
+        font-size: 16px;
+
+        &::placeholder{
+            font-size: 16px;
+        }
     }
 `;
 

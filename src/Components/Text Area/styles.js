@@ -11,6 +11,12 @@ export const Container = styled.div`
         color: ${({theme}) => theme.COLORS.LIGHT_400};
         margin-bottom: 12px;
     };
+
+    @media (max-width: 1000px) {
+        label{
+            font-size: 16px;
+        }   
+    }
 `;
 
 export const InputText = styled.textarea`
@@ -34,6 +40,17 @@ export const InputText = styled.textarea`
 
     &:focus{
         outline: none;
+    }
+
+    @media (max-width: 1000px) {
+         font-size: 16px;
+         line-height: 24px;
+
+         &::placeholder{
+            font-size: 16px;
+            line-height: 24px;
+         }
+          
     }
 `;
 

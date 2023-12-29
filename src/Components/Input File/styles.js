@@ -11,6 +11,12 @@ export const Container = styled.div`
         color: ${({theme}) => theme.COLORS.LIGHT_400};
         
     };
+
+    @media(max-width: 1000px) {
+        label{
+            font-size: 16px;
+        }
+    }
 `;
 
 export const Wraper = styled.div`
@@ -42,6 +48,15 @@ export const Wraper = styled.div`
     &:focus{
         outline: none;
     }
+
+
+    @media(max-width: 1000px) {
+         font-size: 16px;
+         height: 48px;
+         justify-content: flex-start;
+         padding: 0 16px;
+
+    } 
 `;
 
 

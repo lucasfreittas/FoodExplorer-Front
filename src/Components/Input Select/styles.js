@@ -11,6 +11,12 @@ export const Container = styled.div`
         color: ${({theme}) => theme.COLORS.LIGHT_400};
         margin-bottom: 12px;
     };
+
+    @media(max-width: 1000px) {
+        label{
+            font-size: 16px;
+        }
+    }
 `;
 
 export const SelectBox = styled.select`
@@ -18,7 +24,8 @@ export const SelectBox = styled.select`
     border: none;
     height: 65px;
     padding-left: 16px;
-    font-size: 20px;
+    padding-right: 16px;
+    font-size: 22px;
     font-weight: normal;
     color: ${({theme}) => theme.COLORS.LIGHT_100};
     border-radius: 10px;
@@ -31,6 +38,11 @@ export const SelectBox = styled.select`
 
     &:focus{
         outline: none;
+    }
+
+    @media(max-width: 1000px) {
+        height: 48px;
+        font-size: 16px;
     }
 `;
 

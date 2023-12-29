@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { api } from '../../Services/Axios';
 
 import { HeaderAdmin } from '../../Components/Header Admin';
+import { HeaderAdminMobile } from '../../Components/Header Admin Mobile';
 import { TextButton } from '../../Components/TextButton';
 import { Input } from '../../Components/Input Default';
 import { InputSelect } from '../../Components/Input Select';
@@ -82,7 +83,13 @@ export function AddMeal(){
 
     return(
         <Container>
-            <HeaderAdmin/>
+            <div className='headerDesktop'>
+                  <HeaderAdmin/>
+            </div> 
+            
+            <div className='headerMobile'>
+               <HeaderAdminMobile/>
+            </div>
             <Content>
                 <TextButton
                         className='txtbtn'
@@ -90,7 +97,7 @@ export function AddMeal(){
                         icon={MdOutlineKeyboardArrowLeft}
                         onClick={() => navigate(-1)}
                 />
-                <h1>Adicionar Prato</h1>
+                <h1>Novo Prato</h1>
 
                 <Form>
                     <div className='row1' >
@@ -105,6 +112,7 @@ export function AddMeal(){
                             label='Nome'
                             type='text'
                             onChange={e => setName(e.target.value)}
+                            placeholder='Ex.: Salada Ceasar'
                         />
 
                         <InputSelect
