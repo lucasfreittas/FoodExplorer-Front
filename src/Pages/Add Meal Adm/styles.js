@@ -120,6 +120,10 @@ export const Form = styled.form`
             display: flex;
             flex-direction: column;
             margin-bottom: 24px;
+
+            > button {
+            width: 100%;
+        }
         }
     }
 

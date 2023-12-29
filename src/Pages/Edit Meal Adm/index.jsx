@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { api } from '../../Services/Axios';
 
 import { HeaderAdmin } from '../../Components/Header Admin';
+import { HeaderAdminMobile } from '../../Components/Header Admin Mobile';
 import { TextButton } from '../../Components/TextButton';
 import { Input } from '../../Components/Input Default';
 import { InputSelect } from '../../Components/Input Select';
@@ -143,7 +144,13 @@ export function EditMeal(){
 
     return(
         <Container>
-            <HeaderAdmin/>
+             <div className='headerDesktop'>
+                  <HeaderAdmin/>
+            </div> 
+            
+            <div className='headerMobile'>
+               <HeaderAdminMobile/>
+            </div>
             <Content>
                 <TextButton
                         className='txtbtn'

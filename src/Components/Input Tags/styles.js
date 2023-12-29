@@ -32,10 +32,13 @@ export const Wraper = styled.div`
 
     @media (max-width: 1000px) {
         height: 48px;
+        padding: 6px 16px;
+        overflow: auto;
     }
 `;
 
 export const InnerTag = styled.span`
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +84,8 @@ export const InnerTag = styled.span`
 
     @media (max-width: 1000px) {
         font-size: 16px;
-        padding:  4px 8px;
+        height: 100%;
+        padding:  0 16px;
 
         input {
             font-size: 16px;
