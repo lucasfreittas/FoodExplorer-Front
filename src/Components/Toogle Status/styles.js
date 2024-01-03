@@ -21,7 +21,7 @@ export const Container = styled.div`
     color: ${({theme}) => theme.COLORS.LIGHT_400};
     appearance: none;
     width: 100%;
-    z-index: 10;
+    z-index: 1;
     
     margin-left: 32px;
 

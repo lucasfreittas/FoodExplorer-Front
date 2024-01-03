@@ -3,12 +3,31 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: grid;
     height: 112vh;
-    grid-template-rows: 146px auto 120px;
+    grid-template-rows: 146px auto 7.7rem;
     grid-template-areas: 
     "header"
     "content"
     "footer";
     overflow: hidden;
+
+    .headerMobile{
+            display: none;
+            z-index: 2;
+        }
+
+
+    @media(max-width: 1000px){
+        
+        .headerDesktop{
+            display: none;
+            z-index: 2;
+        }
+
+        .headerMobile{
+            display: block;
+            z-index: 2;
+        }
+    }
 `;
 
 export const Content = styled.section`
@@ -23,6 +42,18 @@ export const Content = styled.section`
         font-size: 32px;
         margin-bottom: 24px;
     };
+
+    @media(max-width: 1000px) {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 0 24px;
+        width: 100vw;
+
+        h1{
+            font-size: 24px;
+        }
+    }
 `;
 
 export const Main = styled.div`

@@ -54,4 +54,81 @@ export const Table = styled.table`
         border-bottom-right-radius: 8px;
     };
 
+    @media (max-width: 1000px) {   
+            display: flex;
+            flex-direction: row;
+            border: none;
+
+            tbody{
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+                
+
+            th {
+                display: none;
+            }
+
+            td {
+                padding: 8px 16px;
+                border: none;
+                border-bottom: ${({theme}) => `2px solid ${theme.COLORS.DARK_1000}`};
+
+                :nth-child(3n+1),
+                :nth-child(3n+2),
+                :nth-child(3n+3) {
+                font-size: 14px;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                text-align: right;
+                width: 50%;
+                height: 48px;
+                box-sizing: border-box;
+                vertical-align: middle;
+                }
+
+                :nth-child(1){
+
+                    > div {
+                        background-color: transparent;
+                    }
+                }
+
+                :nth-child(2){
+                    width: 40%
+                }
+
+                :nth-child(3){
+                    width: 100%;
+                    justify-content: flex-start;
+                    margin-left: 16px;
+                    text-align: left;
+                }
+
+
+                :nth-child(4){
+                    display: none;
+                }
+
+                :nth-child(5){
+                    width: 20%
+                }
+            }
+
+            tr{
+                display: flex;
+                flex-wrap: wrap;
+                border: ${({theme}) => `2px solid ${theme.COLORS.DARK_1000}`};
+                border-radius: 8px;
+            }
+
+        
+
+
+        }
+    
+
 `;
