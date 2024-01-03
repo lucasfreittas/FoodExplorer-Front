@@ -49,6 +49,16 @@ export const Container = styled.div`
     position: absolute;
     right: 15px;
   }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    border-radius: 4px;
+
+    select{
+      font-size: 14px;
+      padding: 8px 8px;
+    }
+  }
 `;
 
 

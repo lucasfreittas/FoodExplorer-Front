@@ -3,6 +3,7 @@ import { api } from '../../Services/Axios';
 import { useState, useEffect } from 'react';
 
 import { HeaderAdmin } from '../../Components/Header Admin';
+import { HeaderAdminMobile } from '../../Components/Header Admin Mobile';
 import { TextButton } from '../../Components/TextButton';
 import { Footer } from '../../Components/Footer';
 import { OrdersTable } from '../../Components/Orders Table';
@@ -28,7 +29,13 @@ export function OrderHistoryAdmin(){
 
     return(
         <Container>
-            <HeaderAdmin/>
+            <div className='headerDesktop'>
+                  <HeaderAdmin/>
+            </div> 
+            
+            <div className='headerMobile'>
+               <HeaderAdminMobile/>
+            </div>
 
             <Content> 
                 <h1>Histórico de Pedidos</h1>

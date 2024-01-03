@@ -47,8 +47,8 @@ export function OrdersTable({data, ...rest}){
                                     />
                                 </td>
                                 <td>{order.id.toString().padStart(8, '0')}</td>
-                                <td>{order.description}</td>
                                 <td>{order.created_at}</td>
+                                <td>{order.description}</td>
                                 <td>
                                     <button onClick={() => handleDeleteOrder(order.id)}>
                                         <MdOutlineDelete size={24}/>

@@ -14,7 +14,7 @@ export const Table = styled.table`
     font-size: 3.2rem;
     color: ${({theme}) => theme.COLORS.LIGHT_400};
     border-spacing: 0px;
-    border: ${({theme}) => `2px solid ${theme.COLORS.DARK_1000}`};
+    border: ${({theme}) => `px solid ${theme.COLORS.DARK_1000}`};
     border-radius: 10px;
 
     td, th {
@@ -59,5 +59,75 @@ export const Table = styled.table`
     tbody > :last-child > :last-child{
         border-bottom-right-radius: 8px;
     };
+    
 
+    @media (max-width: 1000px) {   
+            display: flex;
+            flex-direction: row;
+            border: none;
+
+            tbody{
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+                
+
+            th {
+                display: none;
+            }
+
+            td {
+                padding: 8px 16px;
+                border: none;
+                border-bottom: ${({theme}) => `2px solid ${theme.COLORS.DARK_1000}`};
+
+                :nth-child(3n+1),
+                :nth-child(3n+2),
+                :nth-child(3n+3) {
+                font-size: 14px;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                text-align: right;
+                width: 50%;
+                height: 64px;
+                box-sizing: border-box;
+                vertical-align: middle;
+                }
+
+                :nth-child(1){
+                    width: 60%
+                }
+
+                :nth-child(2){
+                    width: 40%
+                }
+
+                :nth-child(3){
+                    display: none;
+                }
+
+                :nth-child(4){
+                    text-align: left;
+                    width: 80%
+                }
+
+                :nth-child(5){
+                    width: 20%
+                }
+            }
+
+            tr{
+                display: flex;
+                flex-wrap: wrap;
+                border: ${({theme}) => `2px solid ${theme.COLORS.DARK_1000}`};
+                border-radius: 8px;
+            }
+
+        
+
+
+        }
 `;
