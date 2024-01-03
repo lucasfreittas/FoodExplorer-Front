@@ -50,4 +50,18 @@ export const Product = styled.div`
             filter: brightness(0.9);
         }
     };
+
+    @media(max-width: 1000px){
+        h1{
+            font-size: 20px;
+        }
+
+        button{
+            font-size: 12px;
+        }
+
+        p{
+            display: none;
+        }
+    }
 `;

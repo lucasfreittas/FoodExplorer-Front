@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { Container, Content, Main  } from './styles';
 import { Header } from '../../Components/Header';
+import { HeaderMobile } from '../../Components/Header Mobile';
 import { TextButton } from '../../Components/TextButton';
 import { ProductsList } from '../../Components/Products List';
 import { Footer } from '../../Components/Footer';
@@ -32,7 +33,13 @@ import { useNavigate } from 'react-router-dom'
 
     return(
         <Container>
-            <Header/>
+            <div className='headerDesktop'>
+                <Header/>
+            </div> 
+            
+            <div className='headerMobile'>
+               <HeaderMobile />
+            </div>
 
             <Content> 
                 <h1>Meus Favoritos</h1>
