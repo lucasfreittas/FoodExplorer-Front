@@ -1,6 +1,7 @@
 import { Container, Content, Order, Payment, Main  } from './styles';
 
 import { Header } from '../../Components/Header';
+import { HeaderMobile } from '../../Components/Header Mobile';
 import { TextButton } from '../../Components/TextButton';
 import { Footer } from '../../Components/Footer';
 import { ProductsList } from '../../Components/Products List';
@@ -37,7 +38,13 @@ export function ShoppingCartUser(){
 
     return(
         <Container>
-            <Header/>
+            <div className='headerDesktop'>
+                <Header/>
+            </div> 
+            
+            <div className='headerMobile'>
+               <HeaderMobile />
+            </div>
             <Content> 
                 <TextButton
                         title='Voltar'

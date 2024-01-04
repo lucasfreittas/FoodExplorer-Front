@@ -45,10 +45,12 @@ export function PaymentCard(){
     };
 
     const pixContent = 
+        <Credit>
         <div className='pixWrapper'>
             <img src={QRCode} alt="" />
             <Button title='Finalizar o pagamento' icon={Receipt} onClick={() => makeOrder()}/>
         </div>
+        </Credit>
         
     const creditContent = 
         <Credit>
