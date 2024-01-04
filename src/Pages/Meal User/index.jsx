@@ -9,7 +9,7 @@ import { Footer } from '../../Components/Footer';
 
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import { FiPlus, FiMinus } from 'react-icons/fi'
-import SaladaRavanello from '../../Assets/salada-ravanello.png'
+
 
 import { useEffect, useState } from 'react';
 import { api } from '../../Services/Axios';

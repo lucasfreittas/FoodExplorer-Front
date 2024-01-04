@@ -7,8 +7,7 @@ import { HeaderAdminMobile } from '../../Components/Header Admin Mobile';
 import { MealCarouselAdmin } from '../../Components/Meal Carousel Admin';
 import { Footer } from '../../Components/Footer';
 
-import HeroImg from '../../Assets/hero-img.png'
-import Salada from '../../Assets/salada-ravanello.png'
+import HeroImg from '../../assets/hero-img.png'
 
 export function HomeAdmin(){
     const [ products, setProducts] = useState([]);

@@ -7,8 +7,8 @@ import { HeaderMobile } from '../../Components/Header Mobile';
 import { MealCarouselUser } from '../../Components/Meal Carousel User';
 import { Footer } from '../../Components/Footer';
 
-import HeroImg from '../../Assets/hero-img.png'
-import Salada from '../../Assets/salada-ravanello.png'
+import HeroImg from '../../assets/hero-img.png'
+
 
 export function HomeUser(){
     const [products, setProducts] = useState([]);

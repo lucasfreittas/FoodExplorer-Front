@@ -7,8 +7,7 @@ import { Button } from '../../Components/Button';
 import { Footer } from '../../Components/Footer';
 
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
-import { FiPlus, FiMinus } from 'react-icons/fi'
-import SaladaRavanello from '../../Assets/salada-ravanello.png'
+
 
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
