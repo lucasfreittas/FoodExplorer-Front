@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Container, Buttons, Content, Credit } from './styles';
-import QRCode from '../../Assets/qrcode.svg'
+import QRCode from '../../assets/qrcode.svg'
 import { Input } from '../../Components/Input Default';
 import { Button } from '../Button';
-import { Receipt } from '../../Assets/receipt';
+import { Receipt } from '../../assets/receipt';
 import { useCart } from '../../Hooks/order';
 import { api } from '../../Services/Axios';
 import { useNavigate } from 'react-router-dom';

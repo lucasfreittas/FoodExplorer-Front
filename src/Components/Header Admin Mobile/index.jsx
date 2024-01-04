@@ -1,17 +1,14 @@
 import { Container, MenuClosed, MenuOpen } from './styles';
 import { useAuth } from '../../Hooks/auth';
 
-import LogoAdm from '../../Assets/logo-admin.svg'
+import LogoAdm from '../../assets/logo-admin.svg'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FiSearch } from 'react-icons/fi'
-import { RxExit } from 'react-icons/rx'
 import { IoCloseOutline } from "react-icons/io5";
 
-import { Receipt } from '../../Assets/receipt'
 
 import { InputSearch } from '../Input Search';
 import { Button } from '../Button';
-import { TextButton } from '../TextButton';
 import { Footer } from '../Footer';
 
 import { useNavigate } from 'react-router-dom';

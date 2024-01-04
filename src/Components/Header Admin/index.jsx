@@ -1,10 +1,10 @@
 import { Container } from './styles';
 import { useAuth } from '../../Hooks/auth';
 
-import LogoAdm from '../../Assets/logo-admin.svg'
+import LogoAdm from '../../assets/logo-admin.svg'
 import { FiSearch } from 'react-icons/fi'
 import { RxExit } from 'react-icons/rx'
-import { Receipt } from '../../Assets/receipt'
+
 
 import { InputSearch } from '../Input Search';
 import { Button } from '../Button';

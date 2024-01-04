@@ -1,5 +1,4 @@
 import { Container, Table } from './styles';
-import { useEffect, useState } from 'react';
 import { MdOutlineDelete } from 'react-icons/md'
 
 import { api } from '../../Services/Axios';

@@ -1,5 +1,4 @@
 import { Container, Table } from './styles';
-import { useEffect, useState } from 'react';
 
 import { ToggleStatus } from '../Toogle Status';
 

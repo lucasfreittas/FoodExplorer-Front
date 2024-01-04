@@ -1,7 +1,5 @@
 import { Container, Carousel, Card } from './styles';
-import Salada from '../../Assets/salada-ravanello.png'
 import { FiPlus, FiMinus, FiEdit, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
-import { Button } from '../Button';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../Services/Axios';

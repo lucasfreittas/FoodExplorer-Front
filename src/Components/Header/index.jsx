@@ -2,10 +2,10 @@ import { useAuth } from '../../Hooks/auth';
 
 import { Container } from './styles';
 
-import LogoFE from '../../Assets/logo-foodexplorer.svg'
+import LogoFE from '../../assets/logo-foodexplorer.svg'
 import { FiSearch } from 'react-icons/fi'
 import { RxExit } from 'react-icons/rx'
-import { Receipt } from '../../Assets/receipt'
+import { Receipt } from '../../assets/receipt'
 
 import { InputSearch } from '../Input Search';
 import { Button } from '../Button';
@@ -13,9 +13,9 @@ import { TextButton } from '../TextButton';
 
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../Hooks/order';
-import { useState, useEffect } from 'react';
 
-import { api } from '../../Services/Axios'; 
+
+
 
 export function Header({onSearchChange}){
     const { signOut } = useAuth()
