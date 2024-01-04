@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Container, Logo, Form } from './styles';
 
-import LogoFoodExplorer from '../../Assets/logo-foodexplorer.svg'
+import LogoFoodExplorer from '../../assets/logo-foodexplorer.svg'
 import { Input } from '../../Components/Input Default';
 import { Button } from '../../Components/Button';
 import { TextButton } from '../../Components/TextButton';
