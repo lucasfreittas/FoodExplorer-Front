@@ -1,4 +1,4 @@
-import { api } from '../../services/axios';
+import { api } from '../../Services/Axios';
 import { useAuth } from '../../Hooks/auth';
 import { useState } from 'react';
 
